@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript Window Variable Example</title>
+  </head>
+  <body>
+    <h2>Check the Console (Press F12 → Console tab)</h2>
+
+    <script>
+      //🧠 Note: In modern JavaScript, when you declare a variable using let, it is not added as a property of the window object.
+      //💡 window is implied in the browser’s global context.
+
+      //let x = 10;
+      var x = 10;
+
+      console.log(window.x); // Output: 10
+      console.log(x); // Output: 10
+    </script>
+  </body>
+</html>
