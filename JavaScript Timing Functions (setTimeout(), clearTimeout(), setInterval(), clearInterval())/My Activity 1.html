@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>JavaScript setTimeout() Example</title>
+  </head>
+  <body>
+    <h2>Test Page</h2>
+    <h3>JavaScript setTimeout() Example</h3>
+
+    <button onclick="RunService()">Test Now</button>
+
+    <script>
+      function RunService() {
+        let counter=0;
+        let newwindow= open("","Activty 1","width=450px,height =600px");
+        newwindow.document.write("<h2  id=\"caption\" >Starting soon…</h2>");
+        let h2 =   newwindow.document.getElementById("caption");
+        let caption = 'Runing... '+ counter;
+        setTimeout(()=> 
+        {
+           h2.innerHTML = caption;
+          let inertcount=    setInterval(()=>
+             {
+                counter++;
+               caption = 'Runing...'+ counter;
+               h2.innerHTML = caption;
+                if(counter === 5)
+                {
+                clearInterval(inertcount);
+                //setTimeout(() => alert("Time’s up!"), 500);
+                return;}
+             },1000)
+
+        },2000)
+      }
+    </script>
+  </body>
+</html>
