@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+      body
+      {
+        background-color: white;
+        align-items: center;
+        justify-items: center;
+        background-image: url('Tasbih.png') ;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-clip: content-box;
+      }      
+     #Conitner 
+      {
+         display: flex;
+        border-radius: 10%;
+        background-color: transparent;
+        border: solid 2px;
+        width: 60vw;
+        height: 30vw;
+        justify-content: center;
+     align-items: center;
+            flex-direction: column;
+            margin-top: 8vw;
+      }
+     #Start
+     {
+        width: 20vw;
+        height: 5vw;
+        border-radius: 15px;
+        background-color: rgb(255, 231, 96);
+        display:block;
+        
+     } 
+
+    </style>
+</head>
+<body>
+
+    <section id="Conitner">
+      <p id="DisplyText"> ابدء التسبيح  </p>
+    <button id="Start"   onclick="start()"> ابدء </button>
+        
+    </section>
+    
+    <script>
+      let text= document.getElementById("DisplyText");
+      const button1 = document.getElementById("Start");
+     
+      function start()
+      {
+         button1.disabled = true;
+
+        setInterval ( UpdateText('سبحان الله'),1000)
+
+      }
+
+      function UpdateText(  string )
+      {
+        let count = 33; 
+
+        text.innerHTML = string 
+        while (count !== 0)
+        {
+          text.innerHTML.concat('-'+ count.toString());
+          count--;
+        }
+
+      }
+     
+    </script>
+</body>
+</html>
