@@ -44,35 +44,64 @@
 <body>
 
     <section id="Conitner">
-      <p id="DisplyText"> ابدء التسبيح  </p>
-    <button id="Start"   onclick="start()"> ابدء </button>
+      <h1 id="DisplyText"> ابدء التسبيح  </h1>
+    <button id="Start"   onclick="startTasbeeh()"> ابدء </button>
         
     </section>
     
     <script>
       let text= document.getElementById("DisplyText");
       const button1 = document.getElementById("Start");
-     
-      function start()
+     let phase=1;
+          let textdisplaed = "";
+      function startTasbeeh()
       {
          button1.disabled = true;
+          let count = 0; 
+  
+            function UpdateText(   )
+                {
+                
+             
+                  count++;
 
-        setInterval ( UpdateText('سبحان الله'),1000)
+                  
+                  for(let i = 0;i<=33;i++)
+                  {
+                    text.textContent = "سبحان الله - " + count; // Update the text with the count
+                    text.style.color = "black"; // Set text color
+                  }
 
+                 // if (phase === 1) {
+                  //  text.textContent = "سبحان الله - " + count; // Update the text with the count
+                  //  text.style.color = "black"; // Set text color
+
+                    // When count reaches 33, move to the next phrase (phase 2)
+                  //  if (count === 33) {
+                  //    phase = 2;
+                  //    count = 0; // Reset counter for the next phrase
+                 //   }
+                //  }   
+              //    else if (phase === 4) {
+                     //   text.textContent =
+                          "لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير";
+                      //  text.style.color = "green";
+
+                        // 🛑 Stop the repeating interval (stop calling updateMessage)
+                      //  clearInterval(intervalID);
+
+                        // ⏰ Wait 1 second, then show an alert message to the user
+                   //     setTimeout(() => alert("في ميزان حسناتكم"), 1000);
+                  //}
+                   
+                button1.disabled = false;
+                
+                }
+          
+                let intervalID = setInterval(UpdateText,500)
       }
 
-      function UpdateText(  string )
-      {
-        let count = 33; 
-
-        text.innerHTML = string 
-        while (count !== 0)
-        {
-          text.innerHTML.concat('-'+ count.toString());
-          count--;
-        }
-
-      }
+      
      
     </script>
 </body>
