@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    :root {
+      --varmargenformitem: 5px;
+    }
+    body {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      display: inline-flexbox;
+    }
+    form {
+      width: 25vw;
+      align-content: center;
+      display: grid;
+      border: solid black;
+      border-radius: 10px;
+      margin: 2px;
+      height: 50vh;
+      padding: 3vh;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    }
+    form input,
+    button {
+      margin: var(--varmargenformitem);
+    }
+
+    form button {
+      margin: var(--varmargenformitem);
+      border-radius: 5px;
+      height: 2rem;
+    }
+  </style>
+
+  <body>
+    <form method="dialog">
+      <label for="Name"> Name</label>
+      <input id="Name" />
+      <br />
+      <label for="Email"> Email</label>
+      <input id="Email" />
+      <label for="Favorite Color"> Favorite Color</label>
+      <input id="Favorite Color" type="color" />
+
+      <button onclick="SaveinlocalStorage()">Save in localStorage</button>
+      <button onclick="LoadfromlocalStorage()">Load from localStorage</button>
+      <button>Delete one item</button>
+      <button onclick="ClearalllocalStorage()">Clear all localStorage</button>
+    </form>
+  </body>
+
+  <script>
+    function SaveinlocalStorage() {
+      console.log("test");
+      let Name = document.getElementById("Name").value;
+      let Email = document.getElementById("Email").value;
+      let FavoriteColor = document.getElementById("Favorite Color").value;
+
+      localStorage.setItem("Name", Name);
+
+      localStorage.setItem("Email", Email);
+      localStorage.setItem("Favorite Color", FavoriteColor);
+    }
+    function LoadfromlocalStorage() {
+      document.getElementById("Name").value = localStorage.getItem("Name");
+      document.getElementById("Email").value = localStorage.getItem("Email");
+      document.getElementById("Favorite Color").value =
+        localStorage.getItem("Favorite Color");
+      console.log("LoadfromlocalStorage");
+    }
+
+    function ClearalllocalStorage() {
+      localStorage.clear();
+      console.log("ClearalllocalStorage");
+    }
+  </script>
+</html>
