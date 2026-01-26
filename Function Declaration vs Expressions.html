@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function AddTextToUI(text)
+       {
+        document.body.innerHTML += `<p>${text}</p>`;
+
+       }
+      hello();
+
+      function hello() {
+        console.log("Hello there!");
+        AddTextToUI("Hello there!");
+      }
+
+      const greet = function () {
+        console.log("Hi!");
+        AddTextToUI("Hi!");
+      };
+      greet();
+
+      function square(x) {
+        return x * x;
+      }
+    </script>
+  </body>
+</html>
