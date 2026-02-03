@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      function greet() {
+        console.log("Hello");
+      }
+
+      greet(); // You call it here
+      (function () {
+        console.log("IIFE executed!");
+      })();
+
+      /* Reason 1 — Create a Private Scope /*
+
+/*IIFE variables do NOT leak into the global scope.*/
+
+      (function () {
+        let secret = 123;
+        console.log(secret);
+      })();
+
+      console.log(secret); // ❌ ERROR (not defined)
+
+      /*Reason 2 — Run setup code immediately
+
+Perfect for initialization:*/
+
+      (function () {
+        console.log("App started!");
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

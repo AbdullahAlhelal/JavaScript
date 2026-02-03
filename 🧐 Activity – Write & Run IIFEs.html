@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <script>
+
+        (function () {
+            console.log("App Loaded!");
+        })();
+
+
+(function(number){
+     let result = Math.pow(number, 2);
+        console.log("The result is: " + result);
+
+} )(2);
+
+let counter = (function () {
+  let count = 0;
+
+  return function () {
+    count++;
+    console.log("Counter:", count);
+  };
+})();
+
+counter();
+counter();
+counter();
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
