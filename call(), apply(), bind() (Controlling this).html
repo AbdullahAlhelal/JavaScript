@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      function greet(greeting) {
+        console.log(greeting, this.name);
+      }
+
+      const user = { name: "Sara" };
+
+      greet.call(user, "Hello"); // Hello Sara
+      greet.apply(user, ["Hi"]); // Hi Sara
+      const boundGreet = greet.bind(user, "Hello");
+
+      boundGreet(); // Hello Sara
+    </script>
+  </head>
+  <body></body>
+</html>

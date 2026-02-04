@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function sumTo(n) {
+        if (n === 1) {
+          return 1;
+        } else {
+          return n + sumTo(n - 1);
+        }
+      }
+
+      function handleClick() {
+        
+        let number = document.getElementById("number").value;
+        let result = sumTo( Number.parseInt( number));
+        console.log(result); // 10
+        document.getElementById("result").innerText = result;
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="handleClick()">sum</button>
+    <input id="number" type="number" />
+    <p id="result"></p>
+  </body>
+</html>
