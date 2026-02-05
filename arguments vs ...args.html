@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+  
+  // Using arguments
+function showArguments() {
+  console.log(arguments);
+  // arguments.map(...) ❌ does not work
+}
+
+// Using rest parameters
+function showRest(...args) {
+  console.log(args);
+  console.log(args.map(x => x * 2));
+}
+
+showArguments(1, 2, 3);
+showRest(1, 2, 3);
+
+  
+</script>
+</head>
+<body>
+    
+</body>
+</html>
