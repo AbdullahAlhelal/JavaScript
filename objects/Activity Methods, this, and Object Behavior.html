@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      const car = {
+        brand: "BMW",
+        showBrand() {
+          console.log("Car:", this.brand);
+        },
+      };
+      car.showBrand(); // Car: BMW
+
+      const student = {
+        name: "Ali",
+        grade: 95,
+        info() {
+          console.log(`${this.name} has a grade of ${this.grade}`);
+        },
+      };
+
+      student.info();
+
+      const obj = {
+        value: 10,
+        print() {
+          console.log(this.value);
+        },
+      };
+
+      obj.print(); // 10
+    </script>
+  </head>
+  <body></body>
+</html>
