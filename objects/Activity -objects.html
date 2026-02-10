@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=1 , initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      const car = { brand: "BMW", model: "X5", year: 2020 };
+      console.info(car);
+
+      //add color 
+      car["color"] = "red";
+      console.warn(car);
+
+           //engine size 
+      car["engine size"] = "25";
+      console.warn(car);
+      
+
+      let propertyName = "owner";
+      car[propertyName] = "John Doe";
+
+        console.warn(car);
+
+        car["infoOwner"] = {
+        age:35,
+        country:"Jordan"
+        };
+
+        console.warn(car.infoOwner);
+
+
+        car["printData"] = function (){
+            console.log("Current Year: " + new Date().getFullYear());
+            console.log("Car Year: " + this.year);
+        }
+        car["printData"]();
+    </script>
+  </head>
+  <body></body>
+</html>

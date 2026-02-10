@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      const user = {
+        name: "Mohammed",
+        age: 30,
+        active: true,
+      };
+
+      console.log(user);
+      //Dot Notation (user.name)
+      console.log(user.name);
+      console.log(user.age);
+      //Bracket Notation (user["name"])
+      console.log(user["name"]);
+      console.log(user["age"]);
+
+      const book = {
+        "publish year": 2024,
+      };
+
+      console.log(book["publish year"]); // ✔ Works
+
+      //adding New Properties
+
+      user.country = "Jordan";
+      user["role"] = "Admin";
+
+      console.log(user);
+
+      //Updating Existing Properties
+      user.age = 31;
+      user["active"] = false;
+      console.log(user);
+
+      //Deleting Properties
+      delete user.active;
+      console.log(user);
+
+      //User-generated property names
+
+      let fieldName = prompt("Enter property name:");
+      let value = prompt("Enter value:");
+
+      const obj = {
+        [fieldName]: value,
+      };
+
+      console.log(obj);
+
+      ///Building objects in loops
+      let obj1 = {};
+
+      for (let i = 1; i <= 3; i++) {
+        obj1["item_" + i] = i * 10;
+      }
+
+      console.log(obj1);
+
+      ///Objects Can Contain Anything (arrays, functions, nested objects)
+      const student = {
+        name: "Sara",
+        scores: [95, 88, 92],
+        greet() {
+          console.log("Hello!");
+        },
+        address: {
+          city: "Amman", 
+          zip: 11118,
+        },
+      };
+
+      student.greet();
+      console.log(student.address.city);
+    </script>
+  </head>
+  <body></body>
+</html>
