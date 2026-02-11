@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      const test = {
+        name: "Omar",
+        age: 21,
+        grade: "A",
+      };
+
+      console.info(test); // {0: {…}}
+
+      console.warn(Object.keys(test));
+      console.log(Object.values(test));
+      console.error(Object.entries(test));
+
+      // 4️⃣ Transform + rebuild
+      const updated = Object.fromEntries(
+        Object.entries(student).map(([key, value]) => [
+          key,
+          typeof value === "string" ? value.toUpperCase() : value,
+        ])
+      );
+
+      console.log(updated);
+    </script>
+  </head>
+  <body></body>
+</html>
