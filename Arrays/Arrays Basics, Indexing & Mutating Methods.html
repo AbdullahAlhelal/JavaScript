@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      let numbers = [10, 20, 30, 40];
+      let names = ["Ahmed", "Sara", "Omar"];
+      let mix = ["text", 10, true];
+
+      // Array Indexing (Accessing Elements)
+
+      let colors = ["red", "green", "blue"];
+
+      console.log(colors[0]); // "red"
+      console.log(colors[1]); // "green"
+      console.log(colors[2]); // "blue"
+      //If you access an index that doesn’t exist:
+      console.log(colors[5]); // undefined
+
+      //You can change values by assigning to an index
+      let items = ["apple", "banana", "orange"];
+
+      items[1] = "mango";
+      console.log(items);
+      // ["apple", "mango", "orange"]
+
+      //You can even create gaps:
+      items[5] = "pear";
+      console.log(items);
+      // ["apple", "mango", "orange", empty × 2, "pear"]
+
+      //4.1 push() — Add to END
+      let nums1 = [1, 2, 3];
+      nums1.push(4);
+
+      console.log("nums1 : " + nums1);
+      // [1, 2, 3, 4]
+
+      //4.2 pop() — Remove LAST element
+
+      let nums2 = [1, 2, 3];
+      nums2.pop();
+
+      console.log("nums2 : " + nums2);
+      // [1, 2, 3]
+
+      //Returns the removed value:
+
+      let value = nums2.pop();
+      console.log(value);
+
+      //4.3 unshift() — Add to START
+
+      let nums4 = [2, 3];
+      nums4.unshift(1);
+
+      console.log(nums4); // [1, 2, 3]
+      //4.4 shift() — Remove FIRST element
+
+      let nums5 = [1, 2, 3];
+      nums5.shift();
+
+      console.log(nums5); // [2, 3]
+      //✔ Example: Remove elements
+
+      let fruits = ["apple", "banana", "orange"];
+      fruits.splice(1, 1);
+
+      console.log(fruits);
+      // ["apple", "orange"]
+
+      //✔ Example: Insert elements
+
+      fruits.splice(1, 0, "mango");
+
+      console.log(fruits); // ["apple", "mango", "orange"]
+      //✔ Example: Replace elements
+
+      fruits.splice(1, 1, "kiwi");
+
+      console.log(fruits); // ["apple", "kiwi", "orange"]
+      // Array Length
+      //The .length property gives the size:
+
+      let numsl = [1, 2, 3];
+      console.log(numsl.length); // 3
+
+      //Changing length modifies the array:
+      numsl.length = 1;
+      console.log(numsl); // [1]
+    </script>
+  </head>
+  <body></body>
+</html>
