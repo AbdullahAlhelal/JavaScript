@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="log"></div>
+    <script>
+      function log(message) {
+        const logDiv = document.getElementById("log");
+        const p = document.createElement("p");
+        p.textContent = message;
+        logDiv.appendChild(p);
+      }
+      //Primitive values (safe by default):
+
+      let a = 5;
+      let b = a;
+      b = 10;
+
+      log("a: " + a); // 5 ✅
+
+      //Objects (reference-based):
+      let a1 = { x: 1 };
+      let b1 = a1;
+
+      b1.x = 99;
+      log("a1.x: " + a1.x); // 99 ❌
+
+      const user = {
+        name: "Ali",
+        settings: {
+          theme: "dark",
+        },
+      };
+
+      const copy = { ...user };
+
+      copy.settings.theme = "light";
+
+      log(user.settings.theme); // "light" ❌
+    </script>
+  </body>
+</html>
