@@ -18,12 +18,13 @@
       shallow.prefs.theme = "light";
 
       console.log(original.prefs.theme); // "light" ❌
-
+      console.log("shallow :" + shallow.prefs.theme);
       // Deep copy
       const deep = structuredClone(original);
       deep.prefs.theme = "blue";
 
       console.log(original.prefs.theme); // "light" ✅
+      console.log("Deep :" + deep.prefs.theme);
     </script>
   </head>
   <body></body>
