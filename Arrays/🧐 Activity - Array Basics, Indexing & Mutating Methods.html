@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      let nums = [10, 20];
+
+      console.log("Befor Add new item " + nums + "\n");
+
+      nums.push(30);
+      console.log("After Adding new item    \n " + nums);
+
+      nums.pop();
+      console.log("After Delte pop \n " + nums);
+      //Use unshift() to add 1 at the beginning, then use shift() to remove the first
+
+      let num1 = [2, 3];
+
+      num1.unshift(1);
+      console.log(num1);
+      //Remove the value 3 using splice().
+
+      let nums3 = [1, 2, 3, 4];
+
+      nums3.splice(2, 1);
+
+      console.log("after Splice " + nums3);
+      //Insert "blue" at index 1 inside this array:
+
+      let colors = ["red", "green"];
+
+      colors.splice(0, 0, "blue");
+      console.log(colors);
+
+      //Predict the output of the following code:
+
+      let a = [5, 6];
+      let b = a;
+
+      b.push(7);
+
+      console.log(a);
+      console.log(b);
+    </script>
+  </head>
+  <body></body>
+</html>
