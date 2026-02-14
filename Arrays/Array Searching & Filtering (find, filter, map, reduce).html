@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //1️⃣ find() — Get the First Match
+
+      const users = [
+        { id: 1, name: "Ahmed" },
+        { id: 2, name: "Sara" },
+        { id: 3, name: "Ahmed" },
+      ];
+
+      const result = users.find((u) => u.name === "Ahmed");
+
+      console.log(result);
+
+      //2️⃣ findIndex() — Get the Index of the First Match
+
+      const index = users.findIndex((u) => u.name === "Ahmed");
+
+      console.log(index);
+      //3️⃣ findLast() — Get the LAST Match
+
+      result = users.findLast((u) => u.name === "Ahmed");
+
+      console.log(result);
+
+      //4️⃣ findLastIndex() — Get the Index of the LAST Match
+      const Lastindex = users.findLastIndex((u) => u.name === "Ahmed");
+
+      console.log(Lastindex);
+
+      //5️⃣ filter() — Get ALL Matches
+      const numbers = [10, 25, 40, 55, 60];
+
+      const above40 = numbers.filter((n) => n > 40);
+
+      console.log(above40);
+
+      //6️⃣ map() — Transform Each Element
+      const prices = [10, 20, 30];
+
+      const afterTax = prices.map((p) => p * 1.15);
+
+      console.log(afterTax);
+
+      //7️⃣ reduce() — Reduce to One Value
+      const nums = [1, 2, 3, 4];
+
+      const sum = nums.reduce((total, n) => total + n, 0);
+
+      console.log(sum);
+
+      //🔥 More Powerful Examples of reduce()
+      //1️⃣ Reduce to Get the Maximum Value
+      const numbs = [5, 12, 7, 20, 3];
+
+      const max = numbs.reduce(
+        (highest, n) => (n > highest ? n : highest),
+        numbs [0]
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
