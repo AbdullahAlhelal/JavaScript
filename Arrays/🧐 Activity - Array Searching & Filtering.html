@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        const people = [
+            { name: "Ali", age: 22 },
+            { name: "Lina", age: 30 },
+            { name: "Ali", age: 28 }
+        ];
+
+        const result1 = people.find((pe) => pe.name === "Ali")
+
+        console.warn(result1);
+        //2 - Using the same array: Use filter() to get ALL people older than 25.
+        const result2 = people.filter((pe) => pe.age >= 25);
+
+        console.warn(result2);
+
+
+        const scores = [5, 10, 15];
+
+        let reultmap = scores.map((item) => item * 2);
+
+        console.log(reultmap);
+
+        //Use reduce() to find the total of this array:
+
+        const cart = [20, 15, 30, 10];
+
+        let reultreduce = scores.reduce(x=>x = x+x);
+
+        console.log(reultreduce);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
