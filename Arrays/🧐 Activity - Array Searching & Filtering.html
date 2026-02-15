@@ -1,46 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
 
     <script>
-        const people = [
-            { name: "Ali", age: 22 },
-            { name: "Lina", age: 30 },
-            { name: "Ali", age: 28 }
-        ];
+      const people = [
+        { name: "Ali", age: 22 },
+        { name: "Lina", age: 30 },
+        { name: "Ali", age: 28 },
+      ];
 
-        const result1 = people.find((pe) => pe.name === "Ali")
+      const result1 = people.find((pe) => pe.name === "Ali");
 
-        console.warn(result1);
-        //2 - Using the same array: Use filter() to get ALL people older than 25.
-        const result2 = people.filter((pe) => pe.age >= 25);
+      console.warn(result1);
+      //2 - Using the same array: Use filter() to get ALL people older than 25.
+      const result2 = people.filter((pe) => pe.age >= 25);
 
-        console.warn(result2);
+      console.warn(result2);
 
+      const scores = [5, 10, 15];
 
-        const scores = [5, 10, 15];
+      let reultmap = scores.map((item) => item * 2);
 
-        let reultmap = scores.map((item) => item * 2);
+      console.log(reultmap);
 
-        console.log(reultmap);
+      //Use reduce() to find the total of this array:
 
-        //Use reduce() to find the total of this array:
+      const cart = [20, 15, 30, 10];
 
-        const cart = [20, 15, 30, 10];
+      let reultreduce = scores.reduce((total, num) => total + num, 0);
 
-        let reultreduce = scores.reduce(x=>x = x+x);
+      console.log(reultreduce);
 
-        console.log(reultreduce);
+      //Use filter() + map() to get the names of users over age 25:
 
+      const users = [
+        { name: "Omar", age: 24 },
+        { name: "Sara", age: 29 },
+        { name: "Hadi", age: 31 },
+      ];
+
+      let res = users.filter((i) => i.age > 25).map((x) => x.name);
+      console.info(res);
     </script>
-</head>
+  </head>
 
-<body>
-
-</body>
-
+  <body></body>
 </html>
