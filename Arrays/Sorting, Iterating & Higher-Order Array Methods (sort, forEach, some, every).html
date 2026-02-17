@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const names = ["Ali", "Lina", "Sara"];
+
+      names.forEach(function (name) {
+        console.log(name);
+      });
+
+      //sort
+      const nums = [100, 5, 20];
+      console.log(nums.sort());
+      //sort by expr
+
+      nums.sort((a, b) => a - b);
+
+      console.log(nums);
+      //✔ Sort descending
+
+      nums.sort((a, b) => b - a);
+
+      /// some() — Check If At Least One Item Matches
+      // Returns true if ANY element satisfies the condition.
+
+      const ages = [12, 17, 19];
+
+      const hasAdult = ages.some((a) => a >= 18);
+
+      console.log(hasAdult);
+      //4️⃣ every() — Check If ALL Items Match
+
+      const scores = [80, 90, 88];
+
+      const allHigh = scores.every((s) => s > 70);
+
+      console.log(allHigh);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const nums = [2, 4, 6];
+
+      nums.forEach(function (number) {
+        console.log(String(number) + ": " + number);
+      });
+      ////Task 2
+      //Sort the following array numerically ascending:
+
+      const values = [40, 5, 90, 12];
+
+      console.log(values.sort((num1, num2) => num1 - num2));
+      //
+      //Using sort(), sort this array alphabetically:
+
+      const cities = ["Amman", "Zarqa", "Irbid"];
+      console.log(cities.sort());
+      //Task 4
+      //  Using some(), check if the array contains any negative number:
+
+      const data = [3, 7, -2, 10];
+      const hasnegative = data.some((x) => x < 0);
+      console.warn(hasnegative);
+
+      // Using every(), check if all numbers are even:
+
+      const list = [2, 4, 6, 8];
+      const isallnumbersareeven = list.every((x) => x % 2 == 0);
+      console.warn(isallnumbersareeven);
+
+    </script>
+  </body>
+</html>
