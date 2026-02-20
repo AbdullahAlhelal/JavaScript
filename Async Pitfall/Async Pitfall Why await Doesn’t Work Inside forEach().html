@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+                  items.forEach(async (item) => {
+                    await doSomething(item);
+                  });
+
+                  //Error
+                  //🧬 What Developers Expect (But Don’t Get)
+                  console.log("Start");
+
+                  items.forEach(async (item) => {
+                    await delay(1000);
+                    console.log(item);
+                  });
+
+                  console.log("End");
+
+                  //correct
+                  const promises = [];
+
+                  items.forEach(async (item) => {
+                    promises.push(await doSomething(item));
+                  });
+
+                  console.log(promises);
+
+                  //🧬 The Correct Patterns (What To Use Instead)
+            //✅ Option 1: for…of (BEST for sequential async)
+            for (const item of items) {
+              await doSomething(item);
+            }
+
+            // Option 2: Promise.all() (Parallel async)
+      await Promise.all(
+        items.map(item => doSomething(item))
+      );
+    </script>
+  </body>
+</html>
