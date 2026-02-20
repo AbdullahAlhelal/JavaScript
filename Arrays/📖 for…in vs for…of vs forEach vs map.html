@@ -1,11 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <script>
+      //for…in — Looping Over Object KEYS
+      //🧠 Easy explanation
+      //for…in loops over keys (property names) of an object.
+
+      const user = { name: "Omar", age: 30 };
+
+      for (const key in user) {
+        console.log(key, user[key]);
+      }
+      //
+      //🧬 for…of — Looping Over VALUES (Best Default)
+      //🧠 Easy explanation
+      //for…of loops over values of iterable things.
+
+      const numbers = [10, 20, 30];
+
+      for (const n of numbers) {
+        console.log(n);
+      }
+      //🧬 forEach — Looping for Side Effects
+      //🧠 Easy explanation
+      //forEach runs a function for each item, but:
+
+      //👉 It does not return anything useful
+
+      numbers.forEach((n) => {
+        console.log(n);
+      });
+      //🧬 map — Transforming Data (Not Looping)
+      //🧠 Easy explanation
+      //map: 👉 Creates a new array
+      //👉 Based on transforming each item
+
+      const prices = [10, 20, 30];
+      const doubled = prices.map((p) => p * 2);
+
+      console.log(doubled); // [20, 40, 60]
+
+      
+    </script>
+  </body>
 </html>
