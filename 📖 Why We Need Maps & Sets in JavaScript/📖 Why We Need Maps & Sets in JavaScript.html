@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //🧬 Problem 1: Limitations of Objects as Dictionaries
+      //❌ Objects force keys to be strings (or symbols)
+
+      const obj = {};
+
+      obj[1] = "one";
+      obj["1"] = "one again";
+
+      console.log(obj);
+
+      //❌ Objects silently convert keys
+
+      const obj1 = {};
+
+      obj1[true] = "yes";
+      obj1["true"] = "also yes";
+
+      console.log(obj1);
+      //✅ Map fixes this
+
+      const map = new Map();
+
+      map.set(1, "one");
+      map.set("1", "string one");
+
+      console.log(map.get(1)); // one
+      console.log(map.get("1")); // string one
+      //🧬 Problem 2: Key Ordering Problems in Objects
+      //Objects do not behave like ordered collections.
+
+      //❌ Object key order is confusing
+
+      const obj = {
+        b: 2,
+        a: 1,
+        10: "ten",
+        2: "two",
+      };
+
+      console.log(Object.keys(obj));
+
+      //✅ Map preserves insertion order
+
+      const map1 = new Map();
+
+      map1.set("b", 2);
+      map1.set("a", 1);
+      map1.set(10, "ten");
+      map1.set(2, "two");
+
+      console.log([...map1.keys()]);
+      //🧬 Problem 4: Uniqueness Handling
+      //❌ Objects are bad for enforcing uniqueness
+      const seen = {};
+
+      seen["A"] = true;
+      seen["A"] = true; // overwritten silently
+
+      //✅ Set is designed for uniqueness
+
+      const ids = new Set();
+
+      ids.add(1);
+      ids.add(1);
+      ids.add(2);
+
+      console.log(ids);
+    </script>
+  </body>
+</html>
