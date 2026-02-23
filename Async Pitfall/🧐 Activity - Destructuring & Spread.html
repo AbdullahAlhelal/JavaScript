@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Task 1
+      //Create an array [10, 20, 30] and destructure the first two values into variables x and y.
+
+      const arr1 = [10, 20, 30];
+
+      const [x, y] = arr1;
+      console.log(x);
+      console.log(y);
+
+      //Task 2
+      //Create an object {brand: "Toyota", model: "Corolla"} and destructure model into a variable.
+      const car = { brand: "Toyota", model: "Corolla" };
+      const { model } = car;
+      console.log(model);
+
+      //Task 3
+      //Destructure a nested object and extract the score:
+
+      const data = { info: { score: 99 } };
+      const {
+        info: { score },
+      } = data;
+      console.log(score);
+
+      // Task 4
+      //Use rest operator to store remaining items:
+
+      const a = [1, 2, 3, 4];
+      const [num1, ...rest] = a;
+      console.log("num1: " + num1);
+      console.log("rest: " + rest);
+
+      //Task 5
+      //Merge these two arrays using spread:
+
+      const a2 = [1, 2];
+      const b2 = [3, 4];
+      const final = [...a2, ...b2];
+      console.warn(final);
+
+      //Task 6
+      //Copy this object using spread:
+
+      const user = { name: "Omar", age: 22 };
+
+      const usercopied = { ...user };
+      console.log(usercopied);
+    </script>
+  </body>
+</html>
