@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1️⃣ Array Destructuring
+      //Extract items from arrays into variables.
+
+      //✔ Basic Example
+
+      const numbers = [10, 20, 30];
+
+      const [a, b, c] = numbers;
+
+      console.log(a); // 10
+      console.log(b); // 20
+      console.log(c); // 30
+
+      //✔ Skip values
+
+      const [x, , y] = [1, 2, 3];
+      console.log(x, y); // 1 3
+
+      //✔ Default values
+
+      const [p = 5, q = 6] = [100];
+      console.log(p, q); // 100 6
+
+      //2️⃣ Object Destructuring
+      //Extract key-value pairs into variables.
+
+      //✔ Basic Example
+
+      const user = {
+        name: "Mohammed",
+        age: 30,
+      };
+
+      const { name, age } = user;
+
+      console.log(name); // Mohammed
+      console.log(age); // 30
+
+      //✔ Rename properties
+
+      const { name: username } = user;
+      console.log(username); // Mohammed
+
+      //✔ Default values
+
+      const { country = "Jordan" } = user;
+      console.log(country); // Jordan
+
+      //3️⃣ Nested Destructuring
+      const student = {
+        profile: {
+          firstName: "Lina",
+          score: 95,
+        },
+      };
+
+      const {
+        profile: { firstName, score },
+      } = student;
+
+      console.log(firstName); // Lina
+      console.log(score); // 95
+
+      //4️⃣ Rest Operator (…) in Destructuring
+      //✔ Get remaining items from arrays
+
+      const [a1, ...rest] = [1, 2, 3, 4, 5];
+      console.log(a1); // 1
+      console.log(rest); // [2, 3, 4, 5]
+      //✔ Get remaining fields in an object
+
+      const person = { name: "Ali", age: 22, city: "Amman" };
+
+      const { name1, ...others } = person;
+
+      console.log(name1); // Ali
+      console.log(others); // { age: 22, city: "Amman" }
+      //5️⃣ Spread Operator (…)
+      //Spread expands arrays/objects.
+
+      //✔ Copy an array
+
+      const arr1 = [1, 2, 3];
+      const arr2 = [...arr1];
+
+      console.log(arr2); // [1, 2, 3]
+
+      //✔ Merge arrays
+
+      const a12 = [1, 2];
+      const a22 = [3, 4];
+
+      const merged = [...a12, ...a22];
+      console.log(merged); // [1, 2, 3, 4]
+
+      //✔ Copy an object
+
+      const user1 = { name: "Khaled", age: 28 };
+      const user2 = { ...user1 };
+
+      console.log(user2); // same properties copied
+      //✔ Merge objects
+
+      const settings = { dark: true };
+      const userSettings = { language: "Arabic" };
+
+      const final = { ...settings, ...userSettings };
+
+      console.log(final);
+      // { dark: true, language: "Arabic" }
+
+      // /✔ Spread in function calls
+
+      function sum(a, b, c) {
+        return a + b + c;
+      }
+
+      const nums = [5, 10, 15];
+      console.log(sum(...nums)); // 30 -->
+    </script>
+  </body>
+</html>
