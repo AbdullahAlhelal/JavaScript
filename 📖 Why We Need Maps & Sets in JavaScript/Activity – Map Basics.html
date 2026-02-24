@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const prices = new Map();
+
+      prices.set("apple", 2);
+      prices.set("banana", 1);
+      prices.set("orange", 3);
+
+      console.log("banana price is :" + prices.get("banana"));
+      //Task 2
+      //Check if the key "apple" exists in the prices map and print the result.
+
+      console.info(prices.has("banana"));
+      //Task 3
+
+      //Print the total number of items stored in the prices map.
+      console.info(prices.size);
+      //Task 4
+      //Use a number as a key in a Map and retrieve its value.
+      const mapWithNumberKey = new Map();
+
+      mapWithNumberKey.set(100, "Order #100");
+
+      console.log(mapWithNumberKey.get(100));
+      // use object as a key
+      const mapWithObjectKey = new Map();
+
+      const user = { id: 1, name: "Ahmed" };
+      mapWithObjectKey.set(user, "User Data");
+
+      console.log(mapWithObjectKey.get(user));
+
+    </script>
+  </body>
+</html>

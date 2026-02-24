@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //🧬 Creating a Map
+      //✔ Syntax
+
+      const myMap = new Map();
+
+      const scores = new Map([
+        ["Ahmed", 90],
+        ["Sara", 85],
+        ["Omar", 92],
+      ]);
+
+      //Map(3) { "Ahmed" → 90, "Sara" → 85, "Omar" → 92 }
+      //Setting Key–Value Pairs
+      const userRoles = new Map();
+
+      userRoles.set("Ahmed", "Admin");
+      userRoles.set("Sara", "Editor");
+      userRoles.set("Omar", "Viewer");
+
+      //
+
+      const settings = new Map()
+        .set("theme", "dark")
+        .set("language", "en")
+        .set("debug", true);
+
+      //🧬 Getting Values
+      //Use.get(key).
+      console.log(userRoles.get("Ahmed"));
+      //❌ Getting a non-existing key
+
+      console.log(userRoles.get("Ali"));
+
+      //📤 Output:
+      //undefined
+      //🧬 Checking Existence
+      //Use .has(key).
+
+      console.log(userRoles.has("Sara"));
+      
+    </script>
+  </body>
+</html>
