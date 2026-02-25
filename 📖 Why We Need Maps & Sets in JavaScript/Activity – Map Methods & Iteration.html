@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const students = new Map();
+      students.set("Ali", 90);
+      students.set("Sara", 95);
+      students.set("Omar", 88);
+
+      console.log(students.get("Sara"));
+
+      //Task 2
+      //Check if the key "Ali" exists in the map and print the result.
+      console.log(students.has("Ali"));
+      //Task 3
+      //Delete "Omar" from the map, then print the map size.
+      console.log(students.delete("Omar"));
+      console.log("Size is :" + students.size);
+      //Task 4
+
+      //Iterate over the map using forEach() and print each student with their score.
+      students.forEach((name, Mark) => console.log(name, "Mark Is :", Mark));
+      //Task 5
+      //Iterate over the map using for...of and print keys and values in this format:
+      for (let Key of students.keys()) {
+        console.log(Key, "=>", students.get(Key));
+      }
+    </script>
+  </body>
+</html>
