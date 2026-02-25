@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //🔹 Creating a Set
+      //✔ Syntax:
+
+      const mySet = new Set();
+      const numbers = new Set([1, 2, 3, 3, 4]);
+      console.log(numbers);
+
+      //🔹 Unique Values Concept
+      //A Set guarantees uniqueness.
+
+      const ids = new Set();
+
+      ids.add(1);
+      ids.add(1);
+      ids.add(2);
+
+      console.log(ids);
+      //🔹 Adding Values (add())
+      //Use add() to insert values.
+
+      const colors = new Set();
+
+      colors.add("red");
+      colors.add("blue");
+      colors.add("red"); // ignored
+
+      console.log(colors);
+
+      //🔹 Deleting Values (delete())
+      //Remove a value using delete().
+
+      colors.delete("blue");
+      console.log(colors);
+      //🔹 Checking Existence (has())
+      ///Use has() to check if a value exists.
+
+      console.log(colors.has("red"));
+      console.log(colors.has("green"));
+      //🔹 Size of a Set
+      //Sets use .size (NOT .length like arrays).
+
+      console.log(colors.size);
+      
+    </script>
+  </body>
+</html>
