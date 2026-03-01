@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const mySet = new Set();
+
+      const ids = new Set();
+      //🔹 add(value)
+      //Adds a value to the Set. If the value already exists → nothing happens.
+      ids.add(1);
+      ids.add(2);
+      ids.add(2); // ignored
+
+      console.log(ids);
+      //🔹 has(value)
+      //Checks if a value exists in the Set.
+
+      console.log(ids.has(1));
+      console.log(ids.has(5));
+
+      //🔹 delete(value)
+      //Removes a specific value from the Set.
+      ids.delete(1);
+      console.log(ids);
+      //🔹 clear()
+      //Removes all values from the Set.
+
+      ids.clear();
+      console.log(ids);
+      //🔹 Converting Set ↔ Array
+      //✔ Array → Set (Remove Duplicates Automatically)
+      const nums = [1, 2, 2, 3, 3];
+      const uniqueSet = new Set(nums);
+
+      console.log(uniqueSet);
+      //✔ Set → Array
+      const arr = [...uniqueSet];
+      console.log(arr);
+      //🔹 Removing Duplicates Using Set (Most Common Use Case)
+      const values = ["a", "b", "a", "c", "b"];
+
+      const uniqueValues = [...new Set(values)];
+
+      console.log(uniqueValues);
+    </script>
+  </body>
+</html>
