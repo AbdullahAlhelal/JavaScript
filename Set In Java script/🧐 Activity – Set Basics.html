@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const fruits = new Set();
+
+      fruits.add("apple");
+      fruits.add("banana");
+      fruits.add("apple");
+      //Task 2
+      //Check if "banana" exists in the set and print the result.
+
+      console.log(
+        'Check if "banana" exists in the set : ' + fruits.has("banana")
+      );
+
+      //Task 3
+      //Delete "apple" from the set and print the set size.
+      fruits.delete("apple");
+      console.info("set size Is : " + fruits.size);
+
+      //Task 4
+      //Add "orange" and "mango" to the set, then print all values.
+     fruits.add("orange");
+      fruits.add("mango");
+      for ( let fruit of fruits.values())
+      {
+        console.log(fruit);
+      }
+      //// Sets store only unique values.
+// Any duplicate value added is ignored automatically.
+console.log("\n");
+console.log(fruits);
+    </script>
+  </body>
+</html>
