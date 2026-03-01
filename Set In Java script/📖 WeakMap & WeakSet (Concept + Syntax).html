@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Normal Map :
+
+      const map = new Map();
+      let user = { name: "Ahmed" };
+
+      map.set(user, "data");
+      user = null;
+
+      // ❌ Object still exists in memory because Map keeps it
+
+      //WeakMap:
+
+      const weakMap = new WeakMap();
+      let user1 = { name: "Ahmed" };
+
+      weakMap.set(user1, "data");
+      user1 = null;
+
+      // ✅ Object is eligible for garbage collection
+
+      //
+      //      🔹 WeakMap
+      //🧬 What Is a WeakMap?
+      //A WeakMap is a collection where:
+
+      //✔ Keys must be objects
+      //✔ Values can be anything
+      //✔ Keys are weakly referenced
+      //
+      //❌ No iteration
+      //❌ No size property
+
+      const wm = new WeakMap();
+
+      const userwm = { id: 1 };
+
+      wm.set(userwm, { lastLogin: "today" });
+
+      //🔹 get(key)
+
+      console.log(wm.get(userwm));
+
+      //🔹 has(key)
+
+      console.log(wm.has(userwm));
+
+      //🔹 delete(key)
+
+      wm.delete(user);
+      //      🔹 WeakSet
+      //🧬 What Is a WeakSet?
+      //A WeakSet is like a Set, but:
+      //
+      //✔ Stores objects only
+      //✔ Holds weak references
+      //✔ Used to track objects without preventing cleanup
+      //
+      //❌ No iteration
+      //❌ No size
+      //❌ No primitives allowed
+      //
+      //🔹 WeakSet Syntax
+      const ws = new WeakSet();
+      
+    </script>
+  </body>
+</html>
