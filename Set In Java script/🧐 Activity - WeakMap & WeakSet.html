@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //        Task 1
+      //Create a WeakMap that stores private settings for user objects.
+
+      const settings = new WeakMap();
+      const user = { name: "ahmad" };
+      const settinguser = { Language: "Ar", Theme: "Dark" };
+
+      settings.set(user, settinguser);
+      console.log(settings);
+
+      //Task 2
+      //Add two user objects to the WeakMap and retrieve their data.
+      const user1 = { name: "Ali" };
+      const user2 = { name: "Sara" };
+
+      settings.set(user1, { theme: "dark" });
+      settings.set(user2, { theme: "light" });
+
+      console.log(settings.get(user1));
+
+      //Task 3
+      //Create a WeakSet to track active sessions.
+      const sessions = new WeakSet();
+      const session = { id: 101 };
+      sessions.add(session);
+
+      ///Task 4
+      //Add a session object, then check if it exists.
+      console.log(sessions.has(session));
+      //Task 5
+      //Explain why WeakMap cannot use numbers or strings as keys.
+      //WeakMap uses weak references, and JavaScript can only garbage-collect objects, not primitives. That’s why keys must be objects.
+    </script>
+  </body>
+</html>

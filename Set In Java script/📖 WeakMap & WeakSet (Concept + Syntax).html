@@ -70,6 +70,31 @@
       //
       //🔹 WeakSet Syntax
       const ws = new WeakSet();
+      const session = { token: "abc" };
+
+      ws.add(session);
+      //🔹 has(object)
+
+      console.log(ws.has(session));
+      //🔹 delete(object)
+
+      ws.delete(session);
+      //✔ 1) Private metadata for objects (WeakMap)
+
+      const privateData = new WeakMap();
+
+      function User(name) {
+        this.name = name;
+        privateData.set(this, { secret: "123" });
+      }
+
+      const u = new User("Ahmed");
+      const visited = new WeakSet();
+
+      function process(obj) {
+        if (visited.has(obj)) return;
+        visited.add(obj);
+      }
       
     </script>
   </body>
