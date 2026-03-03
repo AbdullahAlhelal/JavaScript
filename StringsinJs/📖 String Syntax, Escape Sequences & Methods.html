@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //🔹 1. Single Quotes ' '
+
+      let name = "Ahmed";
+      //🔹 2. Double Quotes " "
+
+      let greeting = "Hello World";
+      //🔹 3. T emplate Literals
+      let user = "Sara";
+      let message = `Welcome ${user}!`;
+
+      //2️⃣ Escape Sequences
+      //✔ Examples
+
+      let quote = 'He said: "JavaScript is awesome"';
+      console.log(quote);
+      //2
+      let text = "Line 1\nLine 2";
+      console.log(text);
+      //⚠️ Template Literals Reduce Escaping
+
+      // let quote1 = He said: "JavaScript is awesome";
+      //3️⃣ String Immutability (Very Important)
+      //❌ Invalid
+
+      let word = "Hi";
+      word[0] = "B"; // does nothing
+      //✔ Correct Way
+
+      let word = "Hi";
+      word = "Bi";
+
+      //4️⃣ Essential String Properties & Methods
+
+      //🔹 length
+
+      let text1 = "JavaScript";
+      console.log(text1.length);
+
+      //🔹 toUpperCase() / toLowerCase()
+
+      console.log("hello".toUpperCase());
+      console.log("WORLD".toLowerCase());
+      //🔹 trim()
+      //Removes spaces from start & end.
+
+      let input = "   Ahmed   ";
+      console.log(input.trim());
+      //🔹 includes()
+
+      console.log("JavaScript".includes("Script"));
+
+      //🔹 startsWith() / endsWith()
+      console.log("hello.js".startsWith("hello"));
+      console.log("hello.js".endsWith(".js"));
+      //🔹 slice(start, end)
+
+      let lang = "JavaScript";
+      console.log(lang.slice(0, 4));
+      //🔹 replace()
+
+      let msg = "Hello World";
+      console.log(msg.replace("World", "JavaScript"));
+
+      //🔹 split()
+
+      let csv = "red,green,blue";
+      console.log(csv.split(","));
+      
+    </script>
+  </body>
+</html>
