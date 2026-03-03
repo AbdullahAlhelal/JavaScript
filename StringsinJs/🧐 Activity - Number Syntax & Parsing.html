@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Task 1
+      //Create a number variable and print it.
+      let num = 5;
+      console.log(num);
+
+      //      Task 2
+      //Convert the string "150px" into a number using parseInt.
+
+      let num1 = parseInt("150px");
+      console.log(num1);
+      //Task 3
+
+      //Convert the string "19.99JD" into a number using parseFloat.
+      let floatnum = parseFloat("19.99JD");
+      console.warn(floatnum);
+
+      //Task 4
+      //Try converting "hello" into a number and check if the result is NaN.
+      const numhe = parseInt("hello");
+      if (!isNaN(numhe)) console.log("is a number");
+      else console.log("is not a number");
+
+      //Task 5
+      //Demonstrate the difference between isNaN() and Number.isNaN().
+
+      console.log(isNaN("abc"));
+      console.log(Number.isNaN("abc"));
+    </script>
+  </body>
+</html>
