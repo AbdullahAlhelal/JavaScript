@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //        1️⃣ Number Syntax in JavaScript
+      //JavaScript has one numeric type: Number.
+      //
+      //🔹 Integers
+
+      let age = 25;
+      let score = -10;
+
+      //🔹 Floating-point Numbers (Decimals)
+
+      let price = 19.99;
+      let temperature = -3.5;
+
+      //2️⃣ parseInt() — Convert to Integer
+      //parseInt() converts a string into an integer.
+      console.log(parseInt("42"));
+      console.log(parseInt("42px"));
+      console.log(parseInt("3.14"));
+      //🔹 With Radix
+
+      console.log(parseInt("101", 2));
+      //      //3️⃣ parseFloat() — Convert to Decimal Number
+      //parseFloat() converts a string into a floating-point number.
+      //
+      //✔ Keeps decimals
+      //✔ Stops at first invalid character
+      //
+      //✔ Examples
+      //
+      console.log(parseFloat("3.14"));
+      console.log(parseFloat("99.5kg"));
+
+      //4️⃣ NaN — Not a Number
+      //NaN represents an invalid numeric result.
+      console.log(Number("abc"));
+      console.log(0 / 0);
+      //5️⃣ isNaN() vs Number.isNaN()
+      //🔹 isNaN() (Loose)
+
+      console.log(isNaN("abc"));
+      //🔹 Number.isNaN() (Strict — Recommended)
+
+      console.log(Number.isNaN("abc"));
+      console.log(Number.isNaN(NaN));
+      
+    </script>
+  </body>
+</html>
