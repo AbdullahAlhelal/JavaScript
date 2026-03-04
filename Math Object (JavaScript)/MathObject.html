@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //✔ Examples of What Math Provides
+
+      console.log(Math.PI);
+      console.log(Math.sqrt(16));
+      console.log(Math.max(3, 7, 2));
+
+      //❌ This is NOT allowed:
+
+      // let m = new Math(); // ❌ ERROR
+
+      //✅ Correct Usage
+
+      Math.round(4.6);
+      Math.random();
+      Math.abs(-10);
+      //🔹 Rounding
+
+      Math.round(4.5); // 5
+      Math.floor(4.9); // 4
+      Math.ceil(4.1); // 5
+      //🔹 Min / Max
+
+      Math.min(3, 5, 1); // 1
+      Math.max(3, 5, 1); // 5
+      //🔹 Random Numbers
+
+      let x = Math.random() * 10; // value between 0 and 1
+      console.log(x);
+      //🧵 Real-Life Use Cases
+      //✔ Rounding prices
+
+      let total = 19.987;
+      console.log(Math.round(total));
+
+      //✔ Generating random IDs or game values
+
+      let dice = Math.floor(Math.random() * 6) + 1;
+      //✔ Validating ranges
+
+      let score = 120;
+      score = Math.min(score, 100); // cap at 100
+
+      //✔ Calculations in charts, games, animations
+
+      let distance = Math.sqrt(x * x + y * y);
+      //✔ UI logic (sliders, progress bars)
+
+      let progress = Math.floor((current / total) * 100);
+      
+    </script>
+  </body>
+</html>
