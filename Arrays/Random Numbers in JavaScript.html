@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1️⃣ Math.random() — The Foundation
+      console.log(Math.random());
+      //2️⃣ Generating a Random Range (Decimals)
+      //✔ Random number between 0 and N
+
+      let randomUpTo10 = Math.random() * 10;
+      console.log(randomUpTo10);
+
+      //✔ Random number between MIN and MAX (decimal)
+
+      let min = 5;
+      let max = 10;
+
+      let randomValue = Math.random() * (max - min) + min;
+      console.log(randomValue);
+
+      //3️⃣ Random Integers (Most Common Use)
+      //✔ Random integer between 0 and N (inclusive)
+
+      //✔ Random integer between MIN and MAX (inclusive)
+
+      function randomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      console.log(randomInt(1, 6));
+      //4️⃣ Real-World Examples
+      //🎲 Dice Roll
+      let dice = Math.floor(Math.random() * 6) + 1;
+      console.log("Dice rolled:", dice);
+
+      //🎯 Random Item from Array
+
+      const colors = ["red", "green", "blue", "yellow"];
+      let index = Math.floor(Math.random() * colors.length);
+
+      console.log(colors[index]);
+    </script>
+  </body>
+</html>
