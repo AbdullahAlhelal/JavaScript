@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Task 1
+      //Find the minimum value among the numbers: 4, 12, 7, 1, 9
+      const values = [4, 12, 7, 1, 9];
+      console.log(Math.min(...values));
+      //Task 2
+      //Find the maximum value in this array:
+      const temps = [18, 22, 30, 15, 27];
+      console.log(Math.max(...temps));
+
+      //      Task 3
+      //Create an array of prices and print:
+      //
+      //✔ Cheapest price
+      //✔ Most expensive price
+      const prices = [19.99, 9.99, 25.5, 15];
+
+      let cheapest = Math.min(...prices);
+      let expensive = Math.max(...prices);
+
+      console.log("Cheapest:", cheapest);
+      console.log("Most Expensive:", expensive);
+      //Task 4
+      //Check if a score 85 is within the range 60–100.
+      let score = 85;
+      console.log(score >= 60 && score <= 100);
+      //Task 5
+      //Given this array:
+
+      const points = [5, 10, 15];
+      //Print the difference between the highest and lowest values.
+      console.log(Math.max(...points) - Math.min(...points));
+    </script>
+  </body>
+</html>
