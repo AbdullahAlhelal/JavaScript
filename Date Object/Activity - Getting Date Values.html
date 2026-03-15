@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //﻿Task 1
+      //Create a Date for "2024-12-31" and print the year.
+
+      let date = new Date();
+      console.log("2024-12-31 and print the year" + date.getFullYear());
+
+      //Task 2
+
+      //From the same date, print the month number (1–12).
+      console.log("print the month number (1–12)" + (date.getMonth() + 1));
+      //Task 3
+      //Print the day of the month.
+      console.log("day of the month " + date.getDate());
+
+      //    Task 4
+      //Print the day of the week index.
+      console.log("day of the week index " + (date.getDay() + 1));
+
+      //Task 5
+      //Create a Date for "2025-06-10T14:45:30" and print:
+      let date1= new Date("2025-06-10T23:54:30");
+       console.log("Hours : " +( date1.getHours() - 12));
+       console.log("Minutes : " + date1.getMinutes());
+       console.log("Seconds : " + date1.getSeconds());
+
+       
+
+
+    </script>
+  </body>
+</html>
