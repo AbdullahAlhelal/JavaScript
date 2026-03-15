@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1️⃣ new Date() — Current Date & Time
+      //Creates a Date object representing now (current moment).
+
+      const now = new Date();
+      console.log(now);
+      //2️⃣ new Date(milliseconds) — From Timestamp
+      //Creates a Date from milliseconds since Jan 1, 1970 (UTC).
+
+      const date = new Date(0);
+      console.log(date);
+      //3️⃣ new Date(dateString) — From String
+      //Creates a Date by parsing a human-readable string.
+
+      const birthday = new Date("1995-06-15");
+      console.log(birthday);
+      //4️⃣ new Date(year, month, day, ...) — Numeric Constructor
+      //Creates a Date using separate numeric values.
+
+      const custom = new Date(2025, 0, 1);
+      console.log(custom);
+      //✔ Full Numeric Example
+
+      const meeting = new Date(2025, 3, 10, 9, 30, 0);
+      console.log(meeting);
+    </script>
+  </body>
+</html>
