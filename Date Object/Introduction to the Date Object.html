@@ -9,8 +9,8 @@
     <label id="datetime"></label>
 
     <script>
-      //let date = new Date();
-      //document.getElementById("datetime").textContent = date.getVarDate();
+    let date = new Date();
+      document.getElementById("datetime").textContent = date.toLocaleString();
 
       const now = new Date();
       console.log(now);
@@ -31,7 +31,7 @@
 
       console.log("Date object:", now1);
       console.log("Timestamp:", now1.getTime());
-      
+
       const now2 = new Date();
       console.log("Welcome! Current time is:", now2);
     </script>
