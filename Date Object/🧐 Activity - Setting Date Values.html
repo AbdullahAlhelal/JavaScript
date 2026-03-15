@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧐 Activity - Setting Date Values</title>
+  </head>
+  <body>
+    <script>
+      //﻿Task 1
+      //Create a date "2020-01-01" and change the year to 2025.
+      let da = new Date("2020-01-01");
+      console.log(`befor ${da.getFullYear()}`);
+      da.setFullYear(2025);
+      console.log(`after ${da.getFullYear()}`);
+      //Task 2
+      //From the same date, set the month to August.
+      da.setMonth(7);
+      console.log(`after ${da}`);
+      //Task 3
+      //Set the day to 15.
+      da.setDate(15);
+      console.log(`after ${da}`);
+      //Task 4
+      //Set the time to 18:45.
+      da.setHours(18);
+      da.setMinutes(45);
+      console.log(`after ${da}`);
+
+      //Task 5
+      //Create a date "2024-12-31" and add 1 day using setDate().
+      let date1 = new Date("2024-12-31");
+      date1.setDate(date1.getDate() + 1);
+      console.info(date1);
+    </script>
+  </body>
+</html>
