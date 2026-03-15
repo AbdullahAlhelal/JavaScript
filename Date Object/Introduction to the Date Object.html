@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label id="datetime"></label>
+
+    <script>
+      //let date = new Date();
+      //document.getElementById("datetime").textContent = date.getVarDate();
+
+      const now = new Date();
+      console.log(now);
+
+      //2️⃣ Creating Dates
+      const birthday = new Date("1995-06-15");
+      console.log(birthday);
+      //✔ Create a Date Using Numbers
+
+      const customDate = new Date(2025, 0, 1);
+      console.log(customDate);
+      //✔ Create a Date with Date & Time
+
+      const meeting = new Date(2025, 3, 10, 9, 30);
+      console.log(meeting);
+      //3️⃣ Current Date & Time (Most Common Use)
+      const now1 = new Date();
+
+      console.log("Date object:", now1);
+      console.log("Timestamp:", now1.getTime());
+      
+      const now2 = new Date();
+      console.log("Welcome! Current time is:", now2);
+    </script>
+  </body>
+</html>
