@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1️⃣ getFullYear()
+      //Returns the 4-digit year.
+
+      const d = new Date("2025-04-10");
+      console.log(d.getFullYear());
+      //2️⃣ getMonth()
+      //Returns the month index (0–11).
+
+      const m = new Date("2025-04-10");
+      console.log(m.getMonth());
+      //✔ To display human-readable month:
+
+      console.log(m.getMonth() + 1);
+
+      //3️⃣ getDate()
+      //Returns the day of the month (1–31).
+      console.log(m.getDate());
+
+      //4️⃣ getDay()
+      //Returns the day of the week (0–6).
+
+      console.log(m.getDay());
+      //5️⃣ getHours()
+      //Returns the hour (0–23).
+
+      console.log(d.getHours());
+
+      //6️⃣ getMinutes()
+      //Returns the minutes (0–59).
+
+      console.log(d.getMinutes());
+      //7️⃣ getSeconds()
+      //Returns the seconds (0–59).
+
+      console.log(d.getSeconds());
+    </script>
+  </body>
+</html>
