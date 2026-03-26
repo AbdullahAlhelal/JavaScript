@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="body">1️⃣ Earlier vs Later Dates ✔ Rule</div>
+    <script>
+      const d1 = new Date("2024-01-01");
+      const d2 = new Date("2024-02-01");
+      const body = document.getElementById("body");
+      const task1 = document.createElement("div");
+      task1.innerHTML = "<p>" + (d1 < d2) + "<p>";
+
+      body.appendChild(task1);
+
+      //2️⃣ Equality Checks (VERY IMPORTANT)
+      //❌ WRONG Way
+
+      new Date("2024-01-01") === new Date("2024-01-01");
+      //✅ Correct Way — Compare Timestamps
+      const a = new Date("2024-01-01");
+      const b = new Date("2024-01-01");
+
+      console.log(a.getTime() === b.getTime());
+      //3️⃣ Sorting Dates
+      //✔ Example — Sort from Oldest to Newest
+
+      const dates = [
+        new Date("2024-05-01"),
+        new Date("2023-12-01"),
+        new Date("2024-01-10"),
+      ];
+
+      dates.sort((a, b) => a - b);
+
+      console.log(dates);
+
+      //4️⃣ Range Comparisons (Between Two Dates) ✔ Rule
+
+      //A date is inside a range if:
+      const start = new Date("2024-01-01");
+      const end = new Date("2024-01-31");
+      const check = new Date("2024-01-15");
+
+      const isInRange = check >= start && check <= end;
+      console.log(isInRange);
+    </script>
+  </body>
+</html>
