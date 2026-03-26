@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //         1️⃣ getTime()
+      // Returns the timestamp of a specific Date object.
+
+      const d = new Date("2025-01-01");
+      console.log(d.getTime());
+
+      //2️⃣ Date.now()
+      //Returns the current timestamp instantly.
+
+      console.log(Date.now());
+
+      //3️⃣ Comparing Dates
+      //Never compare dates as strings.
+
+      //❌ Wrong:
+
+      //date1 === date2
+
+      //✅ Correct way:
+
+      //date1.getTime() === date2.getTime();
+
+      //Example
+
+      const d1 = new Date("2025-01-01");
+      const d2 = new Date("2026-01-01");
+
+      console.log(d1.getTime() < d2.getTime());
+
+      //4️⃣ Calculating Time Differences
+
+      const start = new Date("2025-01-01");
+      const end = new Date("2025-01-11");
+
+      const diff = end.getTime() - start.getTime();
+      console.log("diff : " +diff);
+    </script>
+  </body>
+</html>
