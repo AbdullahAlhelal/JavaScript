@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <p>Task 1 Create a date for "2024-01-01" and print its timestamp.</p>
+      <p id="Task1"></p>
+    </div>
+
+    <div>
+      <p>Task 2 Print the current timestamp using Date.now().</p>
+      <p id="Task2"></p>
+    </div>
+
+    <div>
+      <p>Task 3 Create two dates and check which one is earlier</p>
+      <p id="Task3"></p>
+    </div>
+
+    <div>
+      <p>
+        Task 4 Calculate the number of days between: 2025-03-01 and 2025-03-15
+      </p>
+      <p id="Task4"></p>
+    </div>
+    <div>
+      <p>
+        Task 5 Check if a deadline date has already passed.
+      </p>
+      <p id="Task5"></p>
+    </div>
+
+    <script>
+      const date1 = new Date();
+
+      let Task1 = (document.getElementById("Task1").innerHTML =
+        date1.getTime());
+
+      //Task 2
+      //Print the current timestamp using Date.now().
+
+      let Task2 = (document.getElementById("Task2").innerHTML = Date.now());
+      //Task 3
+      //Create two dates and check which one is earlier.
+      const d1 = new Date("2025-01-01");
+      const d2 = new Date("2024-01-01");
+      let Task3 = (document.getElementById("Task3").innerHTML =
+        d1.getTime() > d2.getTime() ? "Date1" : "Date2");
+      // Task 4 Calculate the number of days between: 2025-03-01 and 2025-03-15
+
+      const dd1 = new Date("2025-03-01");
+      const dd2 = new Date("2025-03-15");
+      let Task4 = (document.getElementById("Task4").innerHTML =
+        dd2.getDate() - dd1.getDate());
+      //Task 5
+      //Check if a deadline date has already passed.
+      const deadline = new Date("2023-12-31");
+      const now = Date.now();
+
+       document.getElementById("Task5").innerHTML =(now > deadline.getTime());
+    </script>
+  </body>
+</html>
