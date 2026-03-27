@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1️⃣ Adding Time to Dates
+      //🔹 Adding Days
+
+      //✔ Example
+
+      const d = new Date();
+      d.setDate(d.getDate() + 5);
+
+      console.log(d);
+
+      //🔹 Adding Weeks
+
+      //✔ Example
+
+      const dweek = new Date();
+      dweek.setDate(dweek.getDate() + 7);
+
+      console.log(dweek);
+
+      //🔹 Adding Months
+
+      //✔ Example
+
+      const dMonth = new Date();
+      dMonth.setMonth(dMonth.getMonth() + 1);
+
+      console.log(dMonth);
+      //🔹 Adding Years
+
+      //✔ Example
+
+      const dYear = new Date();
+      dYear.setFullYear(d.getFullYear() + 1);
+
+      console.log(dYear);
+
+      //🔹 Adding Hours, Minutes, Seconds
+
+      //✔ Example
+
+      const dtime = new Date();
+      dtime.setHours(dtime.getHours() + 2);
+      dtime.setMinutes(dtime.getMinutes() + 30);
+      dtime.setSeconds(dtime.getSeconds() + 15);
+
+      console.log(dtime);
+
+      ///2️⃣ Subtracting Time from Dates
+      //🔹 Subtracting Days
+
+      //✔ Example
+
+      const dDays = new Date();
+      dDays.setDate(dDays.getDate() - 3);
+
+      console.log(dDays);
+      //🔹 Subtracting Weeks
+      //✔ Example
+
+      const d1 = new Date();
+      d1.setDate(d1.getDate() - 14);
+
+      console.log(d1);
+
+      //🔹 Subtracting Months
+
+      //✔ Example
+
+      const d2 = new Date();
+      d2.setMonth(d2.getMonth() - 1);
+
+      console.log(d2);
+
+      //🔹 Subtracting Years
+
+      //✔ Example
+
+      const d3 = new Date();
+      d3.setFullYear(d3.getFullYear() - 2);
+
+      console.log(d3);
+      //🔹 Subtracting Hours, Minutes, Seconds
+
+      //✔ Example
+
+      const d4 = new Date();
+      d.setHours(d4.getHours() - 5);
+      d.setMinutes(d4.getMinutes() - 20);
+      d.setSeconds(d4.getSeconds() - 10);
+
+      console.log(d4);
+    </script>
+  </body>
+</html>
