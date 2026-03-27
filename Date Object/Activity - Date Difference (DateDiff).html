@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Task 1
+      //Create two dates and calculate the difference in milliseconds.
+      const d1 = new Date("2024-01-01");
+      const d2 = new Date("2024-01-02");
+      console.log(d2 - d1);
+      //Task 2
+      //Convert the difference into days.
+      console.log((d2 - d1) / (1000 * 60 * 60 * 24));
+
+      //Task 3
+      //Convert the difference into hours.
+      console.log((d2 - d1) / (1000 * 60 * 60));
+
+      //Task 4
+      //Calculate the difference in weeks (rounded down).
+      console.log(Math.floor((d2 - d1) / (1000 * 60 * 60 * 7)));
+      //Task 5
+      //Write a function that returns the difference in months using calendar logic.
+      function diffInMonths(d1, d2) {
+        return (
+          (d2.getFullYear() - d1.getFullYear()) * 12 +
+          (d2.getMonth() - d1.getMonth())
+        );
+      }
+
+      console.log(diffInMonths(d1, d2));
+    </script>
+  </body>
+</html>
