@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1️⃣ Start of Day
+      //✔ Definition
+      //
+      //The start of a day is:
+      //
+      //00:00:00.000
+      //
+      //✔ Example
+
+      const d = new Date();
+      d.setHours(0, 0, 0, 0);
+
+      console.log(d);
+
+      // 2️⃣ End of Day
+      //✔ Definition
+      //
+      //The end of a day is:
+      //
+      //23:59:59.999
+      //
+      //
+      //
+      //✔ Example
+
+      const d1 = new Date();
+      d1.setHours(23, 59, 59, 999);
+
+      console.log(d1);
+      //      3️⃣ Start of Week
+      //✔ Definition
+      //Assuming Sunday is the start of the week.
+      //✔ Example
+
+      const d2 = new Date();
+      const day = d.getDay(); // 0 (Sun) → 6 (Sat)
+
+      d2.setDate(d2.getDate() - day);
+      d2.setHours(0, 0, 0, 0);
+
+      console.log(d2);
+      //4️⃣ End of Week
+      //✔ Example
+      const d3 = new Date();
+      const day2 = d3.getDay();
+
+      d3.setDate(d3.getDate() + (6 - day));
+      d3.setHours(23, 59, 59, 999);
+
+      console.log(d3);
+      //5️⃣ Start of Month
+      //✔ Definition
+      //
+      //First day of the month at midnight.
+      //
+      //✔ Example
+
+      const d4 = new Date();
+      d4.setDate(1);
+      d4.setHours(0, 0, 0, 0);
+
+      console.log(d4);
+
+      //6️⃣ End of Month (IMPORTANT TRICK)
+      //✔ Rule
+      //Set day to 0 of next month.
+      //✔ Example
+
+      const d5 = new Date();
+      d5.setMonth(d5.getMonth() + 1, 0);
+      d5.setHours(23, 59, 59, 999);
+
+      console.log(d5);
+
+      //🧠 Why it works:
+      //
+      //Day 0 means “last day of previous month”
+
+      //7️⃣ Start of Year
+      //✔ Example
+
+      const d6 = new Date();
+      d6.setMonth(0, 1); // January 1
+      d6.setHours(0, 0, 0, 0);
+
+      console.log(d6);
+      //8️⃣ End of Year
+      //✔ Example
+
+      const d8 = new Date();
+      d8.setMonth(11, 31); // December 31
+      d8.setHours(23, 59, 59, 999);
+
+      console.log(d8);
+    </script>
+  </body>
+</html>
