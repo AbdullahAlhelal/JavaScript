@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Task 1
+      //Create two dates and check which one is earlier.
+      const d1 = new Date("2024-01-01");
+      const d2 = new Date("2024-03-01");
+
+      console.log(d1 < d2);
+
+      //Task 2
+      //Check if two dates represent the same moment in time.
+      const a = new Date("2024-01-01");
+      const b = new Date("2024-01-01");
+
+      console.log(a.getTime() === b.getTime());
+
+      //Task 3
+      //Sort an array of dates from newest to oldest.
+      const dates = [
+        new Date("2024-06-01"),
+        new Date("2023-11-01"),
+        new Date("2024-02-01"),
+      ];
+
+      dates.sort((a, b) => b - a);
+
+      console.log(dates);
+
+      //Task 4
+      //Check if a given date falls between two other dates.
+
+      const start = new Date("2024-01-01");
+      const end = new Date("2024-12-31");
+      const test = new Date("2024-07-10");
+
+      console.log(test >= start && test <= end);
+    </script>
+  </body>
+</html>
