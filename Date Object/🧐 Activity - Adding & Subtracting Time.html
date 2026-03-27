@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //Task 1
+      //Create a date that represents 7 days from today.
+      const d1 = new Date();
+      d1.setDate(d1.getDate() + 7);
+      console.log(d1);
+
+      //Task 2
+      //Create a date that represents 2 weeks ago.
+      d1.setDate(d1.getDate() + 7 * 2);
+      console.log(d1);
+      //Task 3
+      //Create a date that represents 3 months in the future.
+      d1.setDate(d1.getMonth() + 3);
+      console.log(d1);
+      //Task 4
+      //Create a date that represents 1 year ago.
+      d1.setFullYear(d1.getFullYear() - 1);
+      console.log(d1);
+      //Task 5
+      //Create a date that represents 90 minutes from now.
+      const d2 = new Date();
+     d2.setMinutes(d2.getMinutes() + 90 );
+      console.log(d2);
+    </script>
+  </body>
+</html>
