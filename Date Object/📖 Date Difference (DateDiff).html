@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //🧬 Core Concept: Date Difference = Timestamp Difference
+      const d1 = new Date("2024-01-01");
+      const d2 = new Date("2024-01-02");
+
+      const diffMs = d2 - d1;
+
+      //1️⃣ Difference in Milliseconds
+      const start = new Date("2024-01-01");
+      const end = new Date("2024-01-03");
+
+      const diffMs1 = end - start;
+      console.log(diffMs1);
+      // 2️⃣ Difference in Seconds
+      const diffSeconds = diffMs / 1000;
+      console.log(diffSeconds);
+
+      //3️⃣ Difference in Minutes
+      const diffMinutes = diffMs / (1000 * 60);
+      console.log(diffMinutes);
+      //4️⃣ Difference in Hours
+      const diffHours = diffMs / (1000 * 60 * 60);
+      console.log(diffHours);
+
+      //5️⃣ Difference in Days
+      const diffDays = diffMs / (1000 * 60 * 60 * 24);
+      console.log(diffDays);
+      //6️⃣ Difference in Weeks
+      const diffWeeks = diffDays / 7;
+      console.log(diffWeeks);
+      //7️⃣ Difference in Months (Approximate ⚠️)
+      //Months are NOT fixed length (28–31 days), so JavaScript cannot calculate this exactly using milliseconds.
+
+      //✔ Common Practical Approximation
+
+      const diffMonths = diffDays / 30;
+      console.log(diffMonths);
+      //8️⃣ Difference in Years (Approximate ⚠️)
+      const diffYears = diffDays / 365;
+      console.log(diffYears);
+
+      //      ✅ Accurate Difference in Months & Years (Calendar-Based)
+      //✔ Year Difference (Calendar Logic)
+
+      function diffInYears(d1, d2) {
+        return d2.getFullYear() - d1.getFullYear();
+      }
+      //
+      //✔ Month Difference (Calendar Logic)
+
+      function diffInMonths(d1, d2) {
+        return (
+          (d2.getFullYear() - d1.getFullYear()) * 12 +
+          (d2.getMonth() - d1.getMonth())
+        );
+      }
+    </script>
+  </body>
+</html>
