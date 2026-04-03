@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //✔ Safe Validation Function
+
+      function isValidDate(date) {
+        return date instanceof Date && !Number.isNaN(date.getTime());
+      }
+      const input = "2025-02-30"; // February has no 30
+      const date = new Date(input);
+
+      if (isValidDate(date)) {
+        console.log("Valid date:", date.toDateString());
+      } else {
+        console.log("❌ Invalid date");
+      }
+      //2️⃣ Leap Years
+      //February can have 28 or 29 days.
+
+      function isLeapYear(year) {
+        return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+      }
+
+      console.log(isLeapYear(2024)); // true
+      console.log(isLeapYear(2100)); // false
+
+      //4️⃣ End-of-Month Pitfalls
+      //Adding days can jump months:
+
+      const d = new Date(2024, 0, 31); // Jan 31
+      d.setDate(d.getDate() + 1);
+      console.log(d.toDateString());
+//5️⃣ Daylight Saving Time (DST) Issues
+//DST can:
+//
+//Skip hours
+//Duplicate hours
+//Break time calculations
+//Example:
+
+const d1 = new Date("2024-03-10T02:30:00");
+console.log(d1);
+
+
+    </script>
+  </body>
+</html>
