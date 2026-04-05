@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formatting Dates</title>
+  </head>
+  <body>
+    <script>
+      const Datenow = new Date();
+
+      //Task 1
+      //Create a Date object for today and print it using toString().
+      console.log(Datenow.toDateString());
+
+      //Task 2
+      //Print only the date (no time).
+      console.log(Datenow.toLocaleDateString());
+
+      //Task 3
+      //Print the date in ISO format.
+      console.log(Datenow.toISOString());
+      //Task 4
+      //Display today’s date in UK format.
+      console.log(Datenow.toLocaleDateString("en-UK"));
+      //Task 5
+      //Display today’s date in Arabic (Jordan) format.
+      console.log(Datenow.toLocaleDateString("ar-jo"));
+      
+    </script>
+  </body>
+</html>

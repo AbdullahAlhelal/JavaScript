@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //🗝️ Introduction
+      //Dates in JavaScript are stored internally as timestamps, not readable strings. To show dates to users, log them, send them to APIs, or display them in UI, we must format them.
+      //
+      //JavaScript provides several built-in methods to format dates, each serving a different purpose:
+      //
+      //🔹 Human-readable display
+      //🔹 Debugging
+      //🔹 APIs & databases
+      //🔹 Localization
+      //🔹 Time zone awareness
+      //
+      //In this lesson, you’ll learn when and why to use each formatting method.
+
+      // 🧬 The Date Object Recap
+      const now = new Date();
+      //Returns a complete date string including:
+
+      //Day name
+      //Date
+      //Time
+      //Time zone
+      //✔ Example
+
+      console.log(now.toString());
+
+      console.log(now.toDateString());
+
+      //3️⃣ toISOString() — ISO 8601 Format (Standard)
+      //🧠 What it does
+      //
+      //Returns date in ISO format, always in UTC.
+      //
+      //✔ Example
+
+      console.log(now.toISOString());
+
+      //4️⃣ toLocaleDateString() — Localized Date
+      //🧠 What it does
+      //
+      //Formats date based on:
+      //
+      //Language
+      //Region
+      //Locale rules
+      //✔ Example (Default locale)
+
+      console.log(now.toLocaleDateString());
+
+      //✔ Example (Custom locale)
+
+      console.log(now.toLocaleDateString("en-GB"));
+      //✔ Example (Arabic)
+
+      console.log(now.toLocaleDateString("ar-JO"));
+
+      //🌍 Time Zones — Basic Overview
+      //JavaScript dates behave differently depending on time zones:
+      //🔹 Local Time
+
+      now.toString();
+      now.toLocaleDateString();
+      //Uses the user’s local system time zone.
+
+      //🔹 UTC Time
+
+      console.log(now.toISOString());
+    </script>
+  </body>
+</html>
