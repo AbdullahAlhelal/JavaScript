@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Business Date Calculations</title>
+  </head>
+  <body>
+    <script>
+      //1️⃣ Weekdays vs Weekends
+      //JavaScript identifies days using:
+      const date = new Date();
+      date.getDay();
+
+      console.log(date.toISOString());
+      //     ✔ Check if a Date Is a Weekend
+
+      function isWeekend(date) {
+        debugger;
+        const day = date.getDay();
+        return day === 0 || day === 6;
+      }
+      console.info(isWeekend(date));
+      //✔ Check if a Date Is a Business Day
+
+      function isBusinessDay(date) {
+        return !isWeekend(date);
+      }
+
+      //      2️⃣ Skipping Weekends
+      //When adding days, businesses often want:
+      //👉 “Add days only if they are weekdays”
+      //✔ Example — Move to Next Business Day
+      function nextBusinessDay(date) {
+        const d = new Date(date);
+
+        do {
+          d.setDate(d.getDate() + 1);
+        } while (isWeekend(d));
+
+        return d;
+      }
+
+      //3️⃣ Adding Business Days
+      //This is one of the most common business requirements.
+      //✔ Add N Business Days
+
+      function addBusinessDays(startDate, days) {
+        const d = new Date(startDate);
+        let added = 0;
+
+        while (added < days) {
+          d.setDate(d.getDate() + 1);
+
+          if (!isWeekend(d)) {
+            added++;
+          }
+        }
+
+        return d;
+      }
+
+      //4️⃣ Calculating Working-Day Differences
+      //      Sometimes you need:
+      //      👉 “How many working days between two dates?”
+      //      ✔ Count Business Days Between Two Dates
+
+      function businessDaysBetween(start, end) {
+        let count = 0;
+        const d = new Date(start);
+
+        while (d < end) {
+          if (!isWeekend(d)) {
+            count++;
+          }
+          d.setDate(d.getDate() + 1);
+        }
+
+        return count;
+      }
+
+      //      5️⃣ Holiday-Aware Calculations (Concept)
+      //Real business systems also skip:
+      //✔ National holidays
+      //✔ Company-specific off days
+      //
+      //Example idea:
+
+      const holidays = ["2025-01-01", "2025-05-01"];
+
+      //Concept check:
+
+      function isHoliday(date) {
+        debugger
+        return holidays.includes(date.toISOString().slice(0, 10));
+      }
+
+      //Then combine:
+
+      function isBusinessDay(date) {
+        return !isWeekend(date) && !isHoliday(date);
+      }
+
+       console.info(isBusinessDay(date));
+    </script>
+  </body>
+</html>
