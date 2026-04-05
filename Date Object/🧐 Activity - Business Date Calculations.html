@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      🧐 Activity - Business Date Calculations && 💡 Activity - Solutions
+    </title>
+  </head>
+  <body>
+    <script>
+      //Task 1
+      //Create a function that checks if today is a business day.
+      //
+      //💡 Activity - Solutions
+      //✔ Solution 1
+
+      const today = new Date();
+
+      function isBusinessDay(date) {
+        const day = date.getDay();
+        return day !== 0 && day !== 6;
+      }
+
+      console.log(isBusinessDay(today));
+      //Task 2
+      //Create a function that returns the next business day.
+      //✔ Solution 2
+
+      function nextBusinessDay(date) {
+        const d = new Date(date);
+
+        do {
+          d.setDate(d.getDate() + 1);
+        } while (d.getDay() === 0 || d.getDay() === 6);
+
+        return d;
+      }
+
+      console.log(nextBusinessDay(new Date()));
+
+      //Task 3
+      //Add 5 business days to today.
+      //✔ Solution 3
+
+      function addBusinessDays(start, days) {
+        const d = new Date(start);
+        let count = 0;
+
+        while (count < days) {
+          d.setDate(d.getDate() + 1);
+          if (d.getDay() !== 0 && d.getDay() !== 6) {
+            count++;
+          }
+        }
+
+        return d;
+      }
+
+      console.log(addBusinessDays(new Date(), 5));
+      //Task 4
+      //Calculate how many business days are between:
+      //✔ Solution 4
+
+      const start = new Date("2025-03-01");
+      const end = new Date("2025-03-15");
+
+      function businessDaysBetween(start, end) {
+        let count = 0;
+        const d = new Date(start);
+
+        while (d < end) {
+          if (d.getDay() !== 0 && d.getDay() !== 6) {
+            count++;
+          }
+          d.setDate(d.getDate() + 1);
+        }
+
+        return count;
+      }
+
+      console.log(businessDaysBetween(start, end));
+      //1 March 2025
+      //15 March 2025
+      //Task 5
+      // Holidays differ by country, company, and year.
+      // Unlike weekends, they must be configured or fetched dynamically.
+      // That’s why holiday logic is usually data-driven, not hardcoded.
+      //Explain (in code comments) why holidays are handled differently from weekends.
+    </script>
+  </body>
+</html>
