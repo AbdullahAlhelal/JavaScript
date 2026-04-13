@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1️⃣ Spread Operator ...
+      //🧬 Purpose:
+      //
+      //"Expand" an iterable (array, string, object) into individual elements.
+      //
+      //✔ A) Spread in Arrays
+
+      let numbers = [1, 2, 3];
+      let more = [...numbers, 4, 5];
+
+      //✔ B) Copy an Array
+
+      let original = [10, 20];
+      let copy = [...original];
+
+      console.log("Copy ->", copy);
+
+      console.log("Spread array ->", more); // [1, 2, 3, 4, 5]
+
+      //✔ C) Merge Arrays
+
+      let a = [1, 2];
+      let b = [3, 4];
+
+      let merged = [...a, ...b];
+      console.log("Merged ->", merged); // [1, 2, 3, 4]
+
+      //✔ D) Spread in Objects
+
+      let user = { name: "Mohammed", age: 30 };
+      let updated = { ...user, city: "Amman" };
+
+      console.log("Updated user ->", updated);
+
+      //2️⃣ Rest Operator ...
+      //🧬 Purpose:
+      //
+      //"Collect" multiple values into a single array inside functions or destructuring.
+      //
+      //Same syntax as spread but opposite meaning.
+      //✔ A) Rest in Functions
+
+      function sum(...nums) {
+        return nums.reduce((a, b) => a + b, 0);
+      }
+
+      console.log("Sum ->", sum(1, 2, 3, 4)); // 10
+      //✔ B) Rest in Destructuring
+      let [first, ...others] = [10, 20, 30, 40];
+
+      console.log("first ->", first);
+      console.log("others ->", others);
+      // [20, 30, 40]
+
+      //3️⃣ Ternary Operator
+      //🧬 Purpose:
+      //
+      //Shorter if...else.
+      //
+      //Syntax
+      //
+      //condition ? valueIfTrue : valueIfFalse
+
+      //      ✔ Example
+
+      let age = 18;
+      let msg = age >= 18 ? "Adult" : "Minor";
+
+      console.log("Message ->", msg);
+
+      //✔ Nested ternaries (use sparingly!)
+
+      let score = 90;
+      let grade = score >= 90 ? "A" : score >= 80 ? "B" : "C";
+
+      console.log("Grade ->", grade);
+
+      //📖 4️⃣ Nullish Coalescing Operator ??
+      //🧬 Purpose:
+      //
+      //Provide a fallback only if value is null or undefined.
+      //
+      //Syntax
+      //
+      //value ?? fallback
+
+      //✔ Example
+
+      let userInput = null;
+
+      let name = userInput ?? "Guest";
+      console.log("Name ->", name); // "Guest"
+
+      //✔ What makes ?? special?
+
+      //It does NOT treat 0, false, or "" as empty.
+
+      console.log(0 ?? 100); // 0  (valid value)
+      console.log("" ?? "none"); // "" (valid value)
+      console.log(false ?? true); // false
+
+      //5️⃣ Optional Chaining ?.
+      //🧬 Purpose:
+      //
+      //Safely access nested properties without crashing your program.
+      //
+      //✔ Example
+
+      let user1 = { profile: { name: "Sara" } };
+
+      console.log("Name ->", user1.profile?.name); // "Sara"
+    </script>
+  </body>
+</html>
