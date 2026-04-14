@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //        Exercise 1 — Spread Operator
+      //Create an array of numbers and:
+      //
+      //Copy the array
+      //Add extra numbers using spread
+      //Merge it with another array
+
+      let nums = [1, 2, 3];
+      let copy = [...nums];
+      let extended = [...nums, 4, 5];
+      let merged = [...nums, ...extended];
+
+      console.log("Copy ->", copy);
+      console.log("Extended ->", extended);
+      console.log("Merged ->", merged);
+
+      //Exercise 2 — Rest Operator
+      //Write a function multiplyAll(...) that multiplies all numbers passed.
+      function multiplyAll(...values) {
+        return values.reduce((total, v) => total * v, 1);
+      }
+
+      console.log("Multiply ->", multiplyAll(2, 3, 4)); // 24
+
+      multiplyAll(arr1);
+
+      //      Exercise 3 — Ternary Operator
+      //Given a variable speed, print:
+      //
+      //"Fast" if >= 100
+      //"Normal" otherwise
+
+      let speed = 120;
+      let message = speed >= 100 ? "Fast" : "Normal";
+      console.log("Speed message ->", message);
+
+      //Exercise 4 — Nullish Operator
+      //Set:
+
+      //let nickname = someValue ?? "No nickname";
+      let user = "Mohammed";
+      let nickname = user ?? "No nickname";
+      console.log(nickname);
+
+      //Exercise 5 — Optional Chaining
+      //Given:
+
+      
+      let car = { model: "BMW", engine: { hp: 300 } };
+
+      console.log("HP ->", car.engine?.hp);
+      console.log("Color ->", car.details?.color);
+      console.log("Start ->", car.start?.());
+    </script>
+  </body>
+</html>
