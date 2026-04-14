@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity - Rare Operators</title>
+  </head>
+  <body>
+    <script>
+      let car = { model: "BMW", year: 2020, color: "black" };
+      if ("color" in car) delete car.color;
+      console.log(car);
+      //    Exercise 2 — in Operator
+      //Given:
+      //
+      let user = { name: "Sara", age: undefined };
+      //
+      //Check:
+      //
+      //Does "age" exist?
+      //Is user.age equal to undefined? Why are these different?
+
+      console.log("age" in user); // true (property exists)
+      console.log(user.age);
+
+      //Exercise 3 — void
+      //Evaluate:
+
+      let result = void (10 * 10);
+
+      console.log(result);
+      // undefined (void always returns undefined)
+
+      //What is result? Why?
+
+      //Exercise 4 — Comma Operator
+      //What does this print?
+
+      let x = (5, 10, 20);
+      console.log(x);
+    </script>
+  </body>
+</html>
