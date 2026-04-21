@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //🔹 JSON vs JavaScript Objects
+      //They look similar — but they are NOT the same.
+      //
+      //✔ JavaScript Object
+
+      const user = {
+        name: "Ahmed",
+        age: 30,
+        greet() {
+          console.log("Hello");
+        },
+      };
+      //      ❌ Cannot be JSON because:
+      //
+      //Contains a function
+      //Keys don’t need quotes
+      //Not pure data
+      //
+
+      //      ✅ JSON rules:
+      //
+      //Keys must be in double quotes
+      //Values must be valid JSON types
+      //No functions
+      //No comments
+      //No undefined
+
+      //🔹 Why JSON Exists
+      //JSON exists because:
+      //
+      //✔ Different systems use different programming languages
+      //✔ JavaScript, Python, Java, PHP need a common format
+      //✔ JSON is simple, fast, and universal
+      //
+      //🧠 JSON is the language of data, not logic.
+      //
+      //      🔹 Common Use Cases
+      //🔹 APIs (REST APIs return JSON)
+      //🔹 Sending data from server to browser
+      //🔹 Saving configuration files
+      //🔹 Local storage & IndexedDB
+      //🔹 Mobile apps ↔ Backend communication
+      //
+      //✔ Example: API response
+      //
+      //{
+      //  "status": "success",
+      //  "data": {
+      //    "id": 101,
+      //    "username": "mohammed"
+      //  }
+      //}
+      //
+
+      //      🔹 JSON Data Types
+      //JSON supports only data, not behavior:
+      //
+      //✔ String
+      //✔ Number
+      //✔ Boolean
+      //✔ Null
+      //✔ Array
+      //✔ Object
+      //
+      //❌ Not supported:
+      //
+      //Functions
+      //Dates (stored as strings)
+      //undefined
+      //Symbols
+    </script>
+  </body>
+</html>
