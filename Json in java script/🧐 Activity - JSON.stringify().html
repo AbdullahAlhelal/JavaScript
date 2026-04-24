@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧐 Activity - JSON.stringify()</title>
+  </head>
+  <body>
+    <script>
+      const book = {
+        title: "JavaScript Basics",
+        pages: 300,
+        available: true,
+      };
+
+      console.info(JSON.stringify(book));
+      //Task 2
+      //Convert an array of numbers into JSON.
+      const nums = [10, 12, 14, 16, 18, 20];
+      console.info(JSON.stringify(nums));
+
+      //Task 3
+      //Pretty-print the following object using 4 spaces:
+
+      const user = {
+        name: "Lina",
+        skills: ["HTML", "CSS", "JS"],
+      };
+      console.info(JSON.stringify(user, null, 4));
+      //Task 4
+      //What happens when you stringify an object with a function?
+
+      //Test it.
+      const obj = {
+        a: 1,
+        run() {},
+      };
+
+      console.log(JSON.stringify(obj));
+    </script>
+  </body>
+</html>
