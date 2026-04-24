@@ -25,8 +25,82 @@
       //👉 It transforms JavaScript values into a JSON-formatted string.
 
       //🔹 What is JSON.stringify()?
+      const user = {
+        name: "Ahmed",
+        age: 30,
+        active: true,
+      };
 
-      
+      const json1 = JSON.stringify(user);
+
+      console.log(json1);
+
+      //Arrays are converted naturally.
+
+      //✔ Example
+
+      const numbers = [10, 20, 30];
+
+      const json2 = JSON.stringify(numbers);
+
+      console.log(json2);
+      //✔ Array of Objects Example
+      const users = [
+        { id: 1, name: "Sara" },
+        { id: 2, name: "Omar" },
+      ];
+
+      console.log(JSON.stringify(users));
+
+      //✔ Syntax with Formatting
+
+      //JSON.stringify(value, replacer, space);
+
+      const product = {
+        name: "Laptop",
+        price: 1200,
+        specs: {
+          cpu: "i7",
+          ram: "16GB",
+        },
+      };
+
+      const pretty = JSON.stringify(product, null, 2);
+      console.log(pretty);
+
+      //🔹 What JSON.stringify() IGNORES
+      // These values are silently skipped:
+
+      // ❌ Functions
+      // ❌ undefined
+      // ❌ Symbol
+
+      //  ✔ Example
+
+      const data = {
+        name: "Ali",
+        age: undefined,
+        sayHi: function () {},
+        id: Symbol("id"),
+      };
+      console.log(data.id);
+      console.log(JSON.stringify(data));
+
+      //📤 Output
+
+      //{"name":"Ali"}
+
+      //📌 No error — just ignored.
+
+      //🔹 Circular Reference Warning (VERY IMPORTANT)
+      //JSON cannot handle circular references.
+      //
+      //❌ Example (CRASHES)
+
+      const user1 = {};
+      user1.self = user1;
+
+      JSON.stringify(user1);
     </script>
   </body>
 </html>
