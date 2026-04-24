@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 2px 2px 12px 2px;
+    }
+    div {
+      border: solid black 2px;
+      border-radius: 15px;
+      padding: 1rem;
+      box-shadow: -2px 10px 2px blue;
+      background-color: transparent;
+    }
+  </style>
+  <body>
+    <div>
+      <pre>
+ 📖 JSON.parse()
+🗝️ Introduction
+When data comes from outside your JavaScript code, it usually arrives as JSON text, not as real JavaScript objects.
+
+Examples:
+
+✔ API responses
+✔ localStorage data
+✔ IndexedDB exports
+✔ Configuration files
+
+👉 To use this data in JavaScript, you must convert JSON strings into real JS values.
+
+That’s the role of JSON.parse().
+
+
+     </pre
+      >
+    </div>
+    <div>
+      <pre>
+🔹 What is JSON.parse()?
+JSON.parse() converts a JSON-formatted string into a JavaScript value.
+
+✔ JSON string → JS object / array / value
+❌ Invalid JSON → throws an error</pre
+      >
+    </div>
+
+    <script>
+      //🔹 Basic Syntax
+      //JSON.parse(jsonString);
+
+      //🔹 Parsing JSON Strings
+      //✔ Example — Object
+
+      const json = '{"name":"Ahmed","age":30}';
+
+      const user = JSON.parse(json);
+
+      console.log(user);
+
+      //🔹 Parsing JSON Arrays
+      //✔ Example
+
+      const jsonarray = "[10, 20, 30]";
+
+      const numbers = JSON.parse(jsonarray);
+
+      console.log(numbers);
+      //🔹 JSON.parse() + localStorage (Real-Life Example)
+      localStorage.setItem("profile", '{"name":"Lina","role":"Admin"}');
+
+      const stored = localStorage.getItem("profile");
+      const profile = JSON.parse(stored);
+
+      console.log(profile.role);
+
+      //🔹 Error Handling (VERY IMPORTANT)
+      //❌ If the JSON string is invalid, JSON.parse() throws an error.
+
+      //❌ Example (Crash)
+
+      // JSON.parse('{name:"Ahmed"}');
+
+      //📛 Error:
+
+      //SyntaxError: Unexpected token n in JSON
+
+      //🔹 Safe Parsing with try/catch
+      //✔ Correct Pattern
+
+      try {
+        const data = JSON.parse(jsonString);
+        console.log("Parsed:", data);
+      } catch (error) {
+        console.log("❌ Invalid JSON:", error.message);
+      }
+
+      //🔹 Example — Handling Invalid JSON
+
+      const badJson = '{name:"Sara"}';
+
+      try {
+        const result = JSON.parse(badJson);
+        console.log(result);
+      } catch (err) {
+        console.log("❌ Failed to parse JSON");
+      }
+      //🔹 JSON.parse() + JSON.stringify() Together
+      //These two always come as a pair:
+
+      const original = { score: 100 };
+
+      const json12 = JSON.stringify(original);
+      const restored = JSON.parse(json12);
+
+      console.log(restored);
+    </script>
+  </body>
+</html>
