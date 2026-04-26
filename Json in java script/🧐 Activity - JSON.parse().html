@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧐 Activity - JSON.parse()</title>
+  </head>
+  <body>
+    <script>
+      //Task 1
+      //Parse the following JSON string into an object and print the title.
+
+      const json = '{"title":"JavaScript","level":"Beginner"}';
+      const objs = JSON.parse(json);
+      console.log(objs);
+      //Task 2
+      //Parse a JSON array of numbers and print the second element.
+      const jsonarr = "[5, 10, 15]";
+      const objsarr = JSON.parse(jsonarr);
+      console.log(objsarr);
+
+      //Task 3
+      //Wrap JSON.parse() in a try/catch block and handle invalid JSON safely.
+
+      const bad = "{x:1}";
+
+      try {
+        JSON.parse(bad);
+      } catch {
+        console.log("Invalid JSON detected");
+      }
+      //Task 4
+      //Convert an object to JSON, then parse it back, and print the final result.
+
+      const data = { a: 1 };
+
+      const json2 = JSON.stringify(data);
+      const parsed = JSON.parse(json2);
+
+      console.log(parsed);
+    </script>
+  </body>
+</html>
