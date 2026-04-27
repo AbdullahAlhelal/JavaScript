@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📖 JSON in Real Applications, Limitations & Best Practices</title>
+  </head>
+  <body>
+    <script>
+      //🔹 1️⃣ API Responses
+
+      //Most APIs send data as JSON.
+      //
+      //✔ Example — API response (JSON text)
+      //
+      //{
+      //  "id": 1,
+      //  "name": "Ahmed",
+      //  "active": true
+      //}
+
+      // ✔ JavaScript usage
+
+      const json = '{"id":1,"name":"Ahmed","active":true}';
+      const user = JSON.parse(json);
+
+      console.log(user.name);
+
+      //🔹 2️⃣ localStorage Usage
+
+      //Browsers only store strings in localStorage.
+
+      //✔ Correct pattern
+
+      const settings = { theme: "dark", fontSize: 14 };
+
+      localStorage.setItem("settings", JSON.stringify(settings));
+
+      const saved = JSON.parse(localStorage.getItem("settings"));
+
+      console.log(saved.theme);
+
+      //🔹 3️⃣ Sending Data to Servers
+
+      //When sending data to a server (POST / PUT):
+
+      //✔ Convert object → JSON
+
+      const order = { product: "Laptop", price: 1200 };
+
+      const payload = JSON.stringify(order);
+
+      //      // sent via fetch / axios
+      //
+      //      🔹 JSON Limitations (VERY IMPORTANT)
+      //JSON is not JavaScript.
+      //It is a data-only format.
+      //
+      //🔹 1️⃣ No Functions
+      //
+      //❌ Invalid JSON
+      //
+      //{
+      //  "name": "Ali",
+      //  "greet": function() {}
+      //}
+      //
+      //✔ Correct approach
+      //
+      //{
+      //  "name": "Ali"
+      //}
+      //
+      //📌 Functions belong in JavaScript, not JSON
+
+      //      🔹 2️⃣ No undefined
+      //❌ This will be removed silently
+
+      const data = {
+        name: "Sara",
+        age: undefined,
+      };
+
+      console.log(JSON.stringify(data));
+
+      //✔ Use null instead
+
+      //{ "age": null }
+
+      //      🔹 3️⃣ No Comments
+      //
+      //❌ Invalid JSON
+      //
+      //{
+      //  "id": 1 // user id
+      //}
+      //🔹 4️⃣ Date Handling in JSON
+
+      //JSON has no Date type.
+      //
+      //✔ Dates are converted to strings
+
+      const obj = { created: new Date() };
+
+      console.log(JSON.stringify(obj));
+
+      //📌 When parsing, it stays a string
+
+      const parsed = JSON.parse(json);
+      typeof parsed.created; // "string"
+
+      parsed.created = new Date(parsed.created);
+    </script>
+  </body>
+</html>
