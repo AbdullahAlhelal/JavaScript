@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity - JSON Best Practices</title>
+  </head>
+  <body>
+    <script>
+      //Task 1
+
+      //Store an object in localStorage using JSON, then read and print one property.
+      const user = { userid: "1", username: "abdulah", Password: "Aa@1234567" };
+
+      localStorage.setItem("userinfo", JSON.stringify(user));
+
+      const result = JSON.parse(localStorage.getItem("userinfo"));
+      console.log(result.userid);
+
+      //    Task 2
+      //Parse a JSON API-like response and print the user’s name.
+      const json = '{"id":2,"name":"Lina"}';
+      const data = JSON.parse(json);
+
+      console.log(data.name);
+      //Task 3
+      //Create an object with undefined and null, stringify it, and observe the result.
+      const obj = { a: undefined, b: null };
+      console.log(JSON.stringify(obj));
+      //Task 4
+      //Store a Date in JSON, parse it back, and convert it to a real Date object.
+
+      const data1 = { date: new Date() };
+      const json1 = JSON.stringify(data1);
+
+      const parsed = JSON.parse(json1);
+      parsed.date = new Date(parsed.date);
+
+      console.log(parsed.date instanceof Date);
+
+      //Task 5
+      //Wrap JSON.parse() in try/catch and safely handle invalid JSON.
+
+      const bad = "{x:1}";
+
+      try {
+        JSON.parse(bad);
+      } catch {
+        console.log("Invalid JSON");
+      }
+      
+    </script>
+  </body>
+</html>
