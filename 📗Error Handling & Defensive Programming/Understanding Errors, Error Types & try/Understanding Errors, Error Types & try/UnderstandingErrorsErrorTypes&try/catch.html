@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Understanding Errors, Error Types & try/catch</title>
+  </head>
+  <body>
+    <script>
+      //        🔹 1️⃣ What Is an Error?
+      //An error occurs when JavaScript cannot execute a statement correctly.
+      //
+      //✔ JavaScript expects valid syntax and logic
+      //❌ When something is invalid → an error is thrown
+      //
+      //When an error occurs:
+      //
+      //👉 Execution stops immediately
+      //👉 Remaining code does not run
+      //👉 An error message appears (usually in the console)
+
+      //
+      //      🔹 2️⃣ Why Errors Happen
+      //Errors usually happen because of:
+      //
+      //🔹 Typos or misspelled variables
+      //🔹 Using variables before declaration
+      //🔹 Accessing null or undefined
+      //🔹 Calling something that is not a function
+      //🔹 Invalid data from users or APIs
+      //🔹 Wrong assumptions about values
+      //
+      //✔ Errors are signals, not failures
+      //✔ They tell you exactly what went wrong
+
+      //     🔹 3️⃣ Runtime Errors vs Logical Errors
+      //🔹 Runtime Errors
+      //
+      //✔ Code starts executing
+      //❌ Crashes during execution
+      //
+      let user;
+      //console.log(user.name);
+
+      //📤 Output:
+      //
+      //TypeError: Cannot read properties of undefined
+      //
+
+      //
+      //      🔹 Logical Errors
+      //
+      //✔ Code runs
+      //❌ No error is thrown
+      //❌ Result is wrong
+
+      let price = 100;
+      let discount = 20;
+
+      let finalPrice = price + discount; // ❌ should subtract
+      console.log(finalPrice);
+
+      //📤 Output:
+
+      //120;
+
+      //      🔹 4️⃣ JavaScript Execution Failure Flow
+      //JavaScript executes code top to bottom.
+      //
+      //When an error happens:
+      //
+      //1️⃣ JavaScript executes line by line
+      //2️⃣ An error is encountered
+      //3️⃣ Execution stops immediately
+      //4️⃣ Remaining code is skipped
+      //
+      //✔ Example:
+
+      console.log("Step 1");
+      //let x = y + 1;
+      console.log("Step 2");
+
+      //      📤 Output:
+      //
+      //Step 1
+      //ReferenceError: y is not defined.
+
+      //      🔹 5️⃣ JavaScript Error Types (Built-In)
+      //JavaScript provides several error objects.
+
+      //🔹 Error (Base Object)
+
+      //The parent of all error types.
+
+      //throw new Error("Something went wrong");
+
+      //🔹 SyntaxError
+
+      //Occurs when JavaScript cannot parse code.
+
+      /* if (true {
+                                console.log("Hi");
+                              }
+
+                              📤 Output:
+
+                              SyntaxError
+
+                              📌 Code does not run at all./*
+
+
+                              🔹 ReferenceError
+
+                           Occurs when accessing a variable that does not exist.
+
+                           console.log(x);
+
+                            📤 Output:
+
+                            ReferenceError: x is not defined
+                            🔹 TypeError
+
+                              Occurs when a value is used in an invalid way.
+
+                              let num = 5;
+                                  num();
+                              📤 Output:
+
+                          TypeError: num is not a function*/
+
+      /*         🔹 RangeError
+
+                  Occurs when a value is outside an allowed range.
+
+                  let arr = new Array(-1);
+
+                  📤 Output:
+
+                  RangeError*/
+
+      /* 🔹 URIError
+
+                🧬 What is URIError?
+
+                A URIError occurs when JavaScript fails to correctly encode or decode a URL (URI) because the format is invalid or incomplete.
+
+                🔹 Why does URIError happen?
+
+                URI encoding uses percent-encoding:
+
+                %XX   → where XX is a valid hexadecimal value*/
+
+      //    ✔ Example of valid encoding:
+      //
+      //%20  → space
+      //%3A  → :
+      //
+      //❌ Invalid encoding:
+      //
+      //%
+      //%Z1
+      //%2
+
+      //
+      //      JavaScript provides special functions to work with URLs, such as:
+      //
+      //🔹 encodeURI()
+      //🔹 encodeURIComponent()
+      //🔹 decodeURI()
+      //🔹 decodeURIComponent()
+      //
+      //If these functions receive malformed input, JavaScript throws a URIError.
+      //
+      //Example:
+      //
+      //decodeURIComponent("%");
+      //
+      //📤 Output:
+      //
+      //URIError
+      //
+      //📌 Why this fails:
+      //
+      //🔹 % tells JavaScript: “a hex value is coming”
+      //
+      //🔹 But nothing follows
+      //
+      //🔹 The encoding is incomplete
+      //
+      //🔹 JavaScript cannot decode it
+      //
+      //
+      //
+      //🔹 Valid Example (Correct Usage)
+      //
+      //decodeURIComponent("%20");
+      //
+      //📤 Output:
+      //
+      //" "
+
+      //      🔹 6️⃣ try, catch, finally
+      //🔹 Basic Syntax
+      //
+      //try {
+      //  // risky code
+      //} catch (error) {
+      //  // runs if error occurs
+      //} finally {
+      //  // always runs
+      //}
+
+      //🔹 Catching Runtime Errors
+
+      try {
+        let user;
+        console.log(user.name);
+      } catch (err) {
+        console.log("Error caught:", err.message);
+      }
+
+      //  🔹 finally Execution Rules
+
+      //✔ Runs whether error occurs or not
+      //✔ Used for cleanup (closing files, resetting state)
+
+      try {
+        console.log("Try");
+      } catch {
+        console.log("catch");
+      } finally {
+        console.log("Finally always runs");
+      }
+
+      // 🔹 Nested try/catch
+
+      try {
+        try {
+          JSON.parse("{bad json}");
+        } catch (e) {
+          console.log("Inner error");
+        }
+      } catch {
+        console.log("Outer error");
+      }
+    </script>
+  </body>
+</html>
