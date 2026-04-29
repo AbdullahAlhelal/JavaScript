@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity - Understanding Errors in Javascript</title>
+  </head>
+  <body>
+    <script>
+      //Task 1 Write code that causes a ReferenceError.
+      const user = '{"id":"1","name":"abdulalh"}';
+      console.log(JSON.parse(ahmad).name);
+
+      //    Task 2
+      //Write code that causes a TypeError.
+      let x = 10;
+      x();
+
+      //Task 3
+      //Write code with a logical error (no crash).
+      let total = 10 * 2 + 5;
+      console.log(total);
+
+      //Task 4
+      //Wrap runtime-error code in try/catch and prevent crash.
+      try {
+        let obj;
+        console.log(obj.name);
+      } catch (e) {
+        console.log("Caught:", e.message);
+      }
+      //Task 5
+      //Use finally to print a message that always executes.
+      try {
+        console.log("Running");
+      } finally {
+        console.log("Cleanup done");
+      }
+      //Task 6
+      //Create nested try/catch and explain which one handles the error.
+      try {
+        try {
+          JSON.parse("{bad}");
+        } catch {
+          console.log("Inner handled");
+        }
+      } catch {
+        console.log("Outer handled");
+      }
+    </script>
+  </body>
+</html>
