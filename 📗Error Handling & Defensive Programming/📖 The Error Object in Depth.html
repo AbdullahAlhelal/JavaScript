@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📖 The Error Object in Depth</title>
+  </head>
+  <body>
+    <script>
+      //🧬 What Is the Error Object?
+      //Whenever JavaScript encounters a runtime problem, it creates an Error object.
+      //Examples: // //new
+      // Error("Something went wrong"); //new TypeError("Invalid type"); //new
+      // ReferenceError("Variable not defined"); //
+
+      //     🔹 1️⃣ name — Error Type
+      //The name property tells you what kind of error occurred.
+      //
+      //Examples:
+
+      const err = new TypeError("Invalid value");
+      console.log(err.name);
+
+      //      🔹 2️⃣ message — Human-Readable Explanation
+      //The message explains what went wrong.
+      //Example:
+
+      const err1 = new Error("User not found");
+      console.log(err1.message);
+
+      //✔ Good:
+
+      //User with ID 42 not found
+
+      //🔹 3️⃣ stack — Execution Trace
+      //The stack property shows how the code reached the error.
+
+      //Example:
+
+      function a() {
+        b();
+      }
+
+      function b() {
+        throw new Error("Boom!");
+      }
+
+      a();
+
+      //🔹 4️⃣ Custom Error Messages
+      //You can create meaningful, domain-specific errors.
+      //
+      //Example:
+
+      throw new Error("Payment amount cannot be negative");
+    </script>
+  </body>
+</html>
