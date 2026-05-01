@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📖 Throwing Errors Intentionally</title>
+  </head>
+  <body>
+    <script>
+      //        🔹 1️⃣ The throw Keyword
+      //The throw keyword is used to raise an error manually.
+      //
+      //Basic syntax:
+
+      //throw new Error("Something went wrong");
+
+      function divide(a, b) {
+        if (b === 0) {
+          throw new Error("Division by zero is not allowed");
+        }
+        return a / b;
+      }
+
+      divide(10, 0);
+
+      //🔹 2️⃣ Throwing Built-in Errors
+      //JavaScript provides several built-in error types.
+      //
+      //Common Built-in Errors
+      //🔹 Error → general-purpose
+      //🔹 TypeError → wrong data type
+      //🔹 ReferenceError → missing variable
+      //🔹 RangeError → invalid numeric range
+      //🔹 URIError → malformed URI
+
+      function setAge(age) {
+        if (typeof age !== "number") {
+          throw new TypeError("Age must be a number");
+        }
+      }
+      //      🔹 3️⃣ Throwing Custom Errors
+      //You are not limited to built-in messages.
+      //
+      //Example:
+      throw new Error("User does not have permission to access this resource");
+
+      //Why custom messages matter:
+      //✔ Better debugging
+      //✔ Clearer logs
+      //✔ Easier support & maintenance
+      //✔ Professional error reporting
+      //
+      //💡 Error messages should describe what failed and why.
+
+      //🔹 4️⃣ When to throw vs return
+      //This is a critical design decision.
+      //
+      //✔ Use throw when:
+      //🔹 The function cannot continue
+      //🔹 The input violates a rule
+      //🔹 The program is in an invalid state
+      //🔹 Continuing would cause silent bugs
+
+      function withdraw(balance, amount) {
+        if (amount > balance) {
+          throw new Error("Insufficient funds");
+        }
+        return balance - amount;
+      }
+
+      //✔ Use return when:
+      //🔹 The situation is expected
+      //🔹 You want to provide an alternative result
+      //🔹 The caller can handle the outcome normally
+      //
+      //Example:
+
+      function findUser(id) {
+        if (!id) {
+          return null; // Expected: user may not exist
+        }
+      }
+      //⚠️ Bad Practice — Silent Failures
+      //❌ Don’t do this:
+
+      function parseAge(age) {
+        if (isNaN(age)) {
+          return; // silently fails
+        }
+      }
+      //✔ Better:
+
+      throw new Error("Invalid age value");
+    </script>
+  </body>
+</html>
