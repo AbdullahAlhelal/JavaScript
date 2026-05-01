@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧐 Activity - Throwing Errors Intentionally</title>
+  </head>
+  <body>
+    <script>
+      //🧐 Activity - Throwing Errors Intentionally
+      //Task 1
+      //Create a function divide(a, b) that:
+      //
+      //Throws an error if b is 0
+      //Otherwise returns the division result
+
+      //      ✔ Solution 1
+
+      function divide(a, b) {
+        if (b === 0) {
+          throw new Error("Division by zero is not allowed");
+        }
+        return a / b;
+      }
+
+      divide(10, 0);
+
+      //     Task 2
+      //Create a function registerUser(username) that:
+      //
+      //Throws an error if username is empty or missing
+      //Returns "User registered" if valid
+
+      function registerUser(username) {
+        if (!username) {
+          throw new Error("Username is required");
+        }
+        return "User registered";
+      }
+
+      registerUser("");
+
+      //Task 3
+      //Create a function setPrice(price) that:
+      //
+      //Throws a TypeError if price is not a number
+      //Returns the price if valid
+
+      function setPrice(price) {
+        if (typeof price !== "number") {
+          throw new TypeError("Price must be a number");
+        }
+        return price;
+      }
+
+      setPrice("100");
+
+      //Task 4
+      //Create a function withdraw(balance, amount) that:
+      //
+      //Throws an error if amount is greater than balance
+      //Returns the new balance otherwise
+
+      function withdraw(balance, amount) {
+        if (amount > balance) {
+          throw new Error("Insufficient funds");
+        }
+        return balance - amount;
+      }
+
+      withdraw(100, 150);
+
+      //Task 5
+      //Explain by code:
+      //
+      //One case where you should throw
+      //One case where you should return
+
+      // THROW: cannot continue safely
+      function loadConfig(config) {
+        if (!config) {
+          throw new Error("Missing configuration");
+        }
+      }
+
+      // RETURN: expected outcome
+      function findUser(id) {
+        if (!id) {
+          return null;
+        }
+      } 
+    </script>
+  </body>
+</html>
