@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📖 Custom Error Classes</title>
+  </head>
+  <body>
+    <script>
+      //🗝️ Introduction
+      //As applications grow, generic errors like "Something went wrong" are no longer enough.
+
+      //🧬 Why Custom Error Classes Matter
+      //Without custom errors:
+
+      //throw new Error("Invalid operation");
+
+      //You lose:
+      //❌ Context
+      //❌ Intent
+      //❌ Classification
+
+      // With custom errors:
+
+      // throw new ValidationError("Invalid email");
+      //✔ Clear meaning
+      //✔ Easier handling
+      //✔ Professional architecture
+
+      // 🔹 1️⃣ Extending Error
+      //All custom errors should extend the built-in Error class.
+
+      // Basic Custom Error
+      class ValidationError extends Error {
+        constructor(message) {
+          super(message);
+          this.name = "ValidationError";
+        }
+      }
+
+      //Usage:
+
+      throw new ValidationError("Email is required");
+      //ValidationError: Email is required
+
+      //✔ Inherits stack trace
+      //✔ Works with try/catch
+      //✔ Behaves like native errors
+
+      //Examples:
+      //🔹 ValidationError → invalid user input
+      //🔹 AuthError → authentication failures
+      //🔹 PermissionError → authorization issues
+      //🔹 PaymentError → payment failures
+      //🔹 ConfigError → missing or invalid configuration
+
+      //Example:
+
+      class AuthError extends Error {
+        constructor(message) {
+          super(message);
+          this.name = "AuthError";
+        }
+      }
+
+      //     catch (err) {
+      // if (err instanceof AuthError) {
+      //   redirectToLogin();
+      // }
+
+      //🔹 3️⃣ Preserving Stack Traces
+      //Stack traces show where the error happened.
+
+      // Best practice:
+      //✔ Always call super(message)
+      //✔ Set this.name explicitly
+
+      //❌ Bad:
+
+      class BadError extends Error {
+        constructor(msg) {
+          this.message = msg; // stack trace lost
+        }
+      }
+
+      //✔ Correct:
+
+      class GoodError extends Error {
+        constructor(msg) {
+          super(msg); // preserves stack trace
+          this.name = "GoodError";
+        }
+      }
+
+      //      🔹 4️⃣ Naming Conventions
+      //Clear names improve readability and debugging.
+      //
+      //✔ Always end with Error
+      //✔ Use PascalCase
+      //✔ Reflect domain meaning
+      //
+      //Examples:
+      //✔ ValidationError
+      //✔ NetworkError
+      //✔ DatabaseError
+      //✔ OrderNotFoundError
+      //
+      //❌ Avoid:
+      //❌ MyError
+      //❌ Custom1
+      //❌ SomethingWrong
+      //
+      //Your error name should answer:
+      //👉 What failed?
+      //
+
+      //      🧠 Error Classification Strategy
+      //Custom errors allow layered handling:
+      //
+      //🔹 Low-level → DatabaseError
+      //🔹 Mid-level → ServiceError
+      //🔹 High-level → UserFacingError
+      //
+      //This creates controlled failure paths instead of chaos.
+
+      
+    </script>
+  </body>
+</html>
