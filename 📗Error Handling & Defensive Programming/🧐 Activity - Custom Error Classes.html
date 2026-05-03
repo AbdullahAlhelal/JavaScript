@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧐 Activity - Custom Error Classes</title>
+  </head>
+  <body>
+    <script>
+      //        Task 1
+      //Create a custom error class called ValidationError that:
+      //
+      //Extends Error
+      //Sets the error name correctly
+      //Throw it with the message:
+      //class ValidationError extends Error {
+      //  constructor(message) {
+      //    super(message);
+      //    this.name = "Username is required";
+      //  }
+      //}
+      //
+      //throw new ValidationError("test");
+
+      //      Task 2
+      //Create a custom error class called AuthError.
+      //
+      //Write a function login(user) that:
+      //
+      //Throws AuthError if user is missing
+      //Otherwise prints "Login successful"
+
+      class AuthError extends Error {
+        constructor(message) {
+          super(message);
+          this.name = "User Not Found";
+        }
+      }
+      function login(username) {
+        if (!username) throw new AuthError("Error Login");
+        else alert("Login successful");
+      }
+      const username = prompt("Palese get user name");
+      login(username);
+
+      //      Task 3
+      //Use try / catch to:
+      //
+      //Catch the AuthError
+      //Print the error name and message
+      //
+      try {
+        login(null);
+      } catch (err) {
+        console.log(err.name);
+        console.log(err.message);
+      }
+      //      Task 4
+      //Create a custom error class called ConfigError.
+      //
+      //Throw it when a configuration value is missing:
+      //
+      //loadConfig(null);
+      //
+
+      class ConfigError extends Error {
+        constructor(message) {
+          super(message);
+          this.name = "ConfigError";
+        }
+      }
+
+      function loadConfig(config) {
+        if (!config) {
+          throw new ConfigError("Missing configuration");
+        }
+      }
+
+      loadConfig(null);
+
+      //      Task 5
+      //Demonstrate that the stack trace is preserved when using a custom error.
+
+      try {
+        throw new ValidationError("Invalid email format");
+      } catch (err) {
+        console.log(err.stack);
+      }
+    </script>
+  </body>
+</html>
