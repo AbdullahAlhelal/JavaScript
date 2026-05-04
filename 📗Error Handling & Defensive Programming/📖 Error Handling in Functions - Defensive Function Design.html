@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📖 Error Handling in Functions - Defensive Function Design</title>
+  </head>
+  <body>
+    <script>
+      //        1️⃣ Handling Errors Locally (Inside the Function)
+      //
+      //🧠 Concept
+      //
+      //Sometimes a function knows how to handle an error itself.
+      //
+      //Use try...catch inside the function when:
+      //🔹 The function can recover
+      //🔹 You want to return a fallback value
+      //🔹 The error is expected
+      //
+      //✔ Example — Local Handling
+
+      function parseJSON(text) {
+        try {
+          return JSON.parse(text);
+        } catch (error) {
+          console.log("Invalid JSON input");
+          return null; // graceful fallback
+        }
+      }
+
+      // 2️⃣ Rethrowing Errors (Handle → Then Pass Up)
+      //
+      //🧠 Concept
+      //
+      //Sometimes a function:
+      //✔ Logs the error
+      //❌ But cannot fully handle it
+      //
+      //In this case:
+      //👉 Catch the error
+      //👉 Do something (log, cleanup)
+      //👉 Rethrow it
+      //
+      //
+      //
+      //✔ Example — Rethrowing
+
+      function loadUser(data) {
+        try {
+          if (!data.name) {
+            throw new Error("Missing name");
+          }
+          return data.name;
+        } catch (err) {
+          console.log("loadUser failed");
+          throw err; // rethrow
+        }
+      }
+
+      //      3️⃣ Error Boundaries Inside Functions
+      //
+      //🧠 Concept
+      //
+      //An error boundary is a controlled section where errors are caught before they spread.
+      //
+      //Inside functions, this means:
+      //🔹 Validating inputs early
+      //🔹 Stopping execution safely
+      //🔹 Throwing meaningful errors
+      //
+      //✔ Example — Error Boundary Pattern
+
+      function calculateDiscount(price) {
+        if (typeof price !== "number") {
+          throw new TypeError("Price must be a number");
+        }
+
+        if (price < 0) {
+          throw new RangeError("Price cannot be negative");
+        }
+
+        return price * 0.9;
+      }
+
+      //4️⃣ Defensive Function Design (BEST PRACTICE)
+      //
+      //🧠 What Is Defensive Design?
+      //
+      //Writing functions that expect bad input.
+      //
+      //Defensive functions:
+      //✔ Validate arguments
+      //✔ Use defaults
+      //✔ Throw early
+      //✔ Never assume correctness
+
+      //❌ Bad Function
+
+      function greet(name) {
+        return "Hello " + name.toUpperCase();
+      }
+
+      //✅ Defensive Function
+
+      function greet(name) {
+        if (typeof name !== "string") {
+          throw new TypeError("Name must be a string");
+        }
+        return "Hello " + name.toUpperCase();
+      }
+
+      //      🔗 Interconnections
+      //🔹 Functions are error boundaries
+      //🔹 Local handling prevents crashes
+      //🔹 Rethrowing preserves error flow
+      //🔹 Defensive design stops bugs early
+      //🔹 Clear errors = maintainable code
+
+      //🏁 Conclusion
+      //✔ Functions must defend themselves
+      //✔ Handle errors locally only when appropriate
+      //✔ Rethrow when higher logic must decide
+      //✔ Validate inputs aggressively
+      //✔ Errors are part of correct design — not mistakes
+      //
+      //🚀 Mastering error handling inside functions makes your JavaScript stable, safe, and professional
+    </script>
+  </body>
+</html>
