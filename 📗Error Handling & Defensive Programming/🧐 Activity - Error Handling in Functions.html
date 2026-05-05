@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧐 Activity - Error Handling in Functions</title>
+  </head>
+
+  <style>
+    p {
+      color: blue;
+      border: 2px solid black;
+      border-radius: 20px;
+      background-color: red;
+    }
+  </style>
+  <body>
+    <script>
+      //Task 1
+      //Create a function safeDivide(a, b) Handle division by zero inside the function and return null.
+
+      function safeDivide(a, b) {
+        if (b === 0) return null;
+
+        return a / b;
+      }
+
+      console.log(safeDivide(4, 2));
+
+      //Task 2
+      //Create a function getUserName(user)
+      //Throw an error if user.name is missing.
+
+      function getUserName(user) {
+        if (!user || !user.name) {
+          throw new Error("User name is required");
+        }
+        document.write("<p> " + user.name + " </p>");
+      }
+
+      const user = { name: "", password: "123" };
+
+      //user.name= prompt("insert user name")
+      //const password= prompt("insert Password")
+      //if (password === user.password)
+      //{
+      //  getUserName(user);
+      //
+      //}
+
+      //    Task 3
+      //Create a function that catches an error, logs it, and rethrows it.
+
+      function processData(data) {
+        try {
+          if (!data) {
+            throw new Error("No data");
+          }
+        } catch (err) {
+          console.log("Processing failed");
+          throw err; // rethrow
+        }
+      }
+
+      //    Task 4
+      //Design a defensive function that validates two parameters before using them.
+
+      function multiply(a, b) {
+        if (typeof a !== "number" || typeof b !== "number") {
+          throw new TypeError("Both arguments must be numbers");
+        }
+        return a * b;
+      }
+    </script>
+  </body>
+</html>
