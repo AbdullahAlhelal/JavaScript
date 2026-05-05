@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📖 Validations vs Errors</title>
+    <pre>
+        In professional JavaScript code, not every problem is an error.
+
+Some problems are:
+🔹 Invalid input
+🔹 Expected user mistakes
+🔹 Preventable states
+
+Others are:
+🔹 System failures
+🔹 Impossible or unsafe states
+🔹 Programming mistakes
+
+Understanding the difference between validation and errors is critical for writing:
+✔ Stable code
+✔ Predictable functions
+✔ User-friendly applications
+✔ Maintainable systems
+    </pre>
+
+    <script>
+      //        1️⃣ Input Validation
+      //🔹 What is Input Validation?
+      //Input validation means checking data BEFORE using it, to ensure it follows the rules.
+      //
+      //✔ Validation is preventive
+      //✔ It happens before execution
+      //✔ It avoids errors instead of reacting to them
+      //
+      //✔ Example — Validating User Input
+
+      function setAge(age) {
+        if (typeof age !== "number") {
+          return "Invalid age";
+        }
+        return "Age accepted";
+      }
+
+      //     🛡️ 2️⃣ Guard Clauses
+      //🔹 What is a Guard Clause?
+      A; // guard clause is an early exit that protects the function from bad input.
+      //
+      //✔ Improves readability
+      //✔ Prevents deep nesting
+      //✔ Enforces rules early
+      //
+      //✔ Example — Guard Clause
+
+      function withdraw(balance, amount) {
+        if (amount <= 0) return "Invalid amount";
+        if (amount > balance) return "Insufficient funds";
+
+        return balance - amount;
+      }
+
+      //      ⚡ 3️⃣ Fail-Fast Principle
+      //🔹 What Does Fail-Fast Mean?
+      //Fail-fast means:
+      //👉 Stop immediately when something is wrong
+      //
+      //✔ Do NOT continue with bad data
+      //✔ Do NOT hide failures
+      //✔ Do NOT guess outcomes
+      //
+      //✔ Example — Fail Fast with Error
+
+      function divide(a, b) {
+        if (b === 0) {
+          throw new Error("Division by zero");
+        }
+        return a / b;
+      }
+
+      //      📌 Fail-fast is used when:
+      //🔹 Continuing would corrupt data
+      //🔹 The system cannot recover safely
+
+      //      🧠 4️⃣ User Errors vs System Errors
+      //🔹 User Errors (Expected)
+      //These are normal and predictable.
+
+      //       ✅ Handle with:
+      // 🔹 Validation
+      // 🔹 Messages
+      // 🔹 Safe returns
+
+      if (!email.includes("@")) {
+        return "Please enter a valid email";
+      }
+
+      //      🔹 System Errors (Exceptional)
+      //These should NOT happen normally.
+      //
+      //Examples:
+      //❌ Database connection failure
+      //❌ Missing configuration
+      //❌ Logic bugs
+      //
+      //❗ Handle with:
+      //🔹 throw
+      //🔹 Error logging
+      //🔹 try/catch
+      //
+      throw new Error("Database connection failed");
+    </script>
+  </head>
+  <body></body>
+</html>
