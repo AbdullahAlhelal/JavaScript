@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity - Validations vs Errors</title>
+  </head>
+  <body>
+    <script>
+      //        Task 1
+      //Write a function register(username) that:
+      //
+      //🔹 Returns "Invalid username" if empty
+      //🔹 Returns "Registered" if valid
+
+      function register(username) {
+        if (username === "" || !username) {
+          return "Invalid username";
+        }
+        return "Registered";
+      }
+      document.write("<p>" + register() + "</p>");
+
+      //       Task 2
+      //Create a function transfer(balance, amount) that:
+      //🔹 Uses guard clauses
+      //🔹 Throws an error if amount is negative
+      function transfer(balance, amount) {
+        if (amount < 0) {
+          throw new Error("Negative amount not allowed");
+        }
+        if (amount > balance) return "Insufficient funds";
+        return balance - amount;
+      }
+
+      //      Task 3
+      //Decide: validation or error?
+      //
+      //🔹 Invalid email format
+      //🔹 Missing API key
+      //🔹 User enters age as text
+
+      //            ✔ Solution 3
+      //
+      //      Invalid email → Validation
+      //      Missing API key → Error
+      //      Age as text → Validation
+      //
+
+      //      //Task 4
+      //Refactor this code using guard clauses:
+      //
+      //function login(user) {
+      //  if (user) {
+      //    if (user.active) {
+      //      return "Welcome";
+      //    }
+      //  }
+      //  return "Access denied";
+      //}
+      //✔ Solution 4
+
+      function login(user) {
+        if (!user) return "Access denied";
+        if (!user.active) return "Access denied";
+        return "Welcome";
+      }
+
+      //Task 5
+      //Explain when to return and when to throw.
+
+      //  ✔ Solution 5
+
+      //Return → Expected situations, user mistakes
+      // Throw → System failure, invalid state, unsafe continuation
+    </script>
+  </body>
+</html>
