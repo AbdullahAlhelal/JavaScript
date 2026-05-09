@@ -1,11 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>📖 Global Error Handling</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <script>
+      //        1️⃣ What Is Global Error Handling?
+      //Global error handling means:
+      //👉 Catching errors that were NOT handled locally
+      //
+      //These include:
+      //🔹 Errors thrown outside try/catch
+      //🔹 Async errors not awaited
+      //🔹 Promise rejections without .catch()
+      //🔹 Unexpected runtime failures
+
+      //      🌍 2️⃣ window.onerror — Catch Uncaught Errors
+      //🔹 What is window.onerror?
+      //A browser-level handler that catches uncaught runtime errors.
+      //
+      //✔ Works for:
+      //🔹 ReferenceError
+      //🔹 TypeError
+      //🔹 Syntax errors at runtime
+
+      window.onerror = function (message, source, lineno, colno, error) {
+        console.error("Global Error:", message);
+      };
+
+      window.onerror = function (message, source, line, column, error) {
+        console.error("🔥 Uncaught Error:", message);
+      };
+
+      // nonExistingFunction(); // Not caught locally
+
+      //⚡ 3️⃣ unhandledrejection — Promise Errors
+      //🔹 What Is an Unhandled Promise Rejection?
+      //when a Promise rejects without a .catch().
+      //
+      //✔ Listener
+      window.addEventListener("unhandledrejection", function (event) {
+        console.error("Unhandled Promise Rejection:", event.reason);
+      });
+
+      //Promise.reject("Server not reachable");
+
+      //      🧠 4️⃣ Centralized Error Logging
+      //🔹 Why Centralize Errors?
+      //Instead of handling errors everywhere:
+      //✔ Capture them in one place
+      //✔ Send them to a logging service
+      //✔ Monitor trends and crashes
+
+      //      ✔ Example — Central Logger
+      //function logError(error) {
+      //  console.error("Logged:", error.message);
+      //  // sendToServer(error)
+      //}
+
+      //      🏭 5️⃣ Production vs Development Behavior
+      //🔹 Development Mode
+      //✔ Show full stack traces
+      //✔ Console logs
+      //✔ Debug-friendly messages
+      //
+      //console.error(error.stack);
+
+      //      🔹 Production Mode
+      //✔ Hide technical details
+      //✔ Log silently
+      //✔ Show user-friendly messages
+
+      alert("Something went wrong. Please try again.");
+
+      //      🔁 How Errors Flow Globally
+      //1️⃣ Error occurs
+      //2️⃣ No local try/catch
+      //3️⃣ Browser triggers:
+      //🔹 window.onerror OR
+      //🔹 unhandledrejection
+      //4️⃣ Central logger records it
+      //5️⃣ App reacts safely
+    </script>
+  </body>
 </html>
