@@ -26,6 +26,34 @@
 
       // Task 3
       //Create a function logError(error) and use it inside both global handlers.
+
+      function logError(error) {
+        console.error("Central Log:", error.message || error);
+      }
+
+      window.onerror = function (msg, src, line, col, err) {
+        logError(err || new Error(msg));
+      };
+
+      window.addEventListener("unhandledrejection", function (event) {
+        logError(event.reason);
+      });
+
+      //      Task 4
+      //Trigger:
+      //🔹 One runtime error
+      //🔹 One unhandled Promise rejection
+      nonExistingFunction(); // runtime error
+
+      Promise.reject("API down"); // unhandled promise
+
+      //      Task 5
+      //Explain:
+      //🔹 Why global handlers should NOT replace try/catch
+
+      // Global handlers are a safety net.
+      //Local try/catch allows recovery.
+      //Global handlers only observe failures.
     </script>
   </body>
 </html>
