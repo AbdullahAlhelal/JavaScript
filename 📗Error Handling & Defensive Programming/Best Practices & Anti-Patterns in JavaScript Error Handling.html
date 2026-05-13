@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Practices & Anti-Patterns in JavaScript Error Handling</title>
+  </head>
+  <body>
+    <script>
+      //
+      //❌ Swallowing Errors (Anti-Pattern)
+      //🧬 What is Swallowing an Error?
+      //Catching an error without doing anything meaningful with it.
+      //
+      //try {
+      //  riskyOperation();
+      //} catch (e) {
+      //  // ❌ Error swallowed
+      //}
+      //⚠️ Why This Is Dangerous
+      //🔹 Errors disappear silently
+      //🔹 Bugs become impossible to trace
+      //🔹 Application may continue in a broken state
+      //🔹 Debugging production issues becomes a nightmare
+      //
+      //✅ Correct Approach
+      //Always do at least one of the following:
+      //✔ Log the error
+      //✔ Show feedback
+      //✔ Rethrow the error
+      //
+      //catch (e) {
+      //  console.error(e);
+      //  throw e;
+      //}
+      //
+      //
+      //❌ Overusing try/catch (Anti-Pattern)
+      //🧬 What Is Overuse?
+      //Wrapping code that cannot realistically fail inside try/catch.
+      //
+      //try {
+      //  let x = 10;
+      //  let y = x + 5;
+      //} catch (e) {}
+      //
+      //⚠️ Why This Is Bad
+      //🔹 Adds unnecessary noise
+      //🔹 Makes code harder to read
+      //🔹 Hides real error boundaries
+      //🔹 Suggests instability where none exists
+      //
+      //✅ Best Practice
+      //Use try/catch only around:
+      //✔ JSON parsing
+      //✔ Network requests
+      //✔ External APIs
+      //✔ User input processing
+      //✔ File or storage access
+      //
+      //
+      //❌ Silent Failures (Anti-Pattern)
+      //🧬 What Is a Silent Failure?
+      //An operation fails, but:
+      //🔹 No error is thrown
+      //🔹 No message is logged
+      //🔹 Caller is unaware
+      //
+      //function loadData() {
+      //  try {
+      //    return JSON.parse(data);
+      //  } catch {
+      //    return null; // ❌ silent failure
+      //  }
+      //}
+      //
+      //⚠️ Why This Is Dangerous
+      //🔹 Bugs propagate silently
+      //🔹 Wrong data flows through the app
+      //🔹 Failures are discovered too late
+      //
+      //✅ Better Pattern
+      //Be explicit about failure:
+      //
+      //throw new Error("Invalid JSON format");
+      //
+      //Or return a clearly defined error state.
+      //
+      //
+      //✅ Error Message Quality (Best Practice)
+      //❌ Bad Error Messages
+      //throw new Error("Error");
+      //
+      //Too vague. Useless for debugging.
+      //
+      //
+      //✅ Good Error Messages
+      //throw new Error("User ID must be a positive integer");
+      //
+      //✔ Clear
+      //✔ Specific
+      //✔ Actionable
+      //✔ Context-aware
+      //
+      //📌 Rule of Thumb
+      //A good error message should answer:
+      //🔹 What went wrong?
+      //🔹 Why?
+      //🔹 What should be fixed?
+      //
+      //
+      //✅ Logging Strategy (Best Practice)
+      //🧬 Why Logging Matters
+      //Logs are your eyes in production.
+      //
+      //Good logs help you:
+      //✔ Reproduce bugs
+      //✔ Understand failure conditions
+      //✔ Diagnose user issues
+    </script>
+  </body>
+</html>
