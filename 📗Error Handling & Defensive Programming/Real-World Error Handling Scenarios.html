@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Real-World Error Handling Scenarios</title>
+  </head>
+  <body>
+    <script>
+      //        Real-world error handling is about:
+      //
+      //🔹 Expecting failure
+      //🔹 Detecting it early
+      //🔹 Responding safely
+      //🔹 Keeping the system stable
+      //
+      //This lesson walks through the most common real-world failure scenarios and how to handle them correctly.
+      //
+      //🌐 API Failures
+      //🧬 What Is an API Failure?
+      //An API call succeeds technically, but:
+      //🔹 Returns an error status (4xx / 5xx)
+      //🔹 Responds with invalid data
+      //🔹 Times out
+      //🔹 Is unavailable
+
+      fetch("/api/users")
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("API responded with status " + res.status);
+          }
+          return res.json();
+        })
+        .catch((err) => {
+          console.error("API failure:", err.message);
+        });
+
+      //        ✅ Best Practices
+      //✔ Always check response status
+      //✔ Handle both network and server errors
+      //✔ Never assume API data is valid
+
+      //      📡 Network Errors
+      //🧬 What Are Network Errors?
+      //Errors caused by:
+      //🔹 No internet connection
+      //🔹 DNS failure
+      //🔹 Timeout
+      //🔹 Blocked requests
+
+      fetch("/data").catch((err) => {
+        console.error("Network error:", err.message);
+      });
+
+      //      ⚠️ Key Insight
+      //Network errors never reach the server — they fail before a response exists.
+      //
+      //✅ Best Practices
+      //✔ Treat network failure separately from API errors
+      //✔ Show retry or offline messages
+      //✔ Avoid infinite retries
+
+      //     🧑‍💻 Invalid User Input
+      //🧬 What Is Invalid Input?
+      //User input that:
+      //🔹 Is missing
+      //🔹 Has wrong type
+      //🔹 Violates business rules
+      //
+      //function submitAge(age) {
+      //  if (typeof age !== "number" || age <= 0) {
+      //    throw new Error("Age must be a positive number");
+      //  }
+      //}
+      //
+      //✅ Best Practices
+      //✔ Validate early (before processing)
+      //✔ Never trust user input
+      //✔ Give clear, human-friendly messages
+
+      //      ⚙️ Configuration Errors
+      //🧬 What Are Configuration Errors?
+      //Errors caused by:
+      //🔹 Missing environment variables
+      //🔹 Wrong API keys
+      //🔹 Invalid app settings
+      //
+      //if (!process.env.API_KEY) {
+      //  throw new Error("Missing API_KEY configuration");
+      //}
+
+      //      🧨 Data Corruption Scenarios
+      //🧬 What Is Data Corruption?
+      //When stored or transmitted data is:
+      //🔹 Incomplete
+      //🔹 Malformed
+      //🔹 Unexpected format
+      //🔹 Out of sync
+
+      try {
+        const data = JSON.parse(storedValue);
+      } catch {
+        console.error("Corrupted data detected");
+      }
+
+      //⚠️ Risks
+      //🔹 Crashes
+      //🔹 Incorrect calculations
+      //🔹 Security vulnerabilities
+    </script>
+  </body>
+</html>

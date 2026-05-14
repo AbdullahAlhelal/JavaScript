@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Error Handling Mental Model (How Professionals Think About Errors)
+    </title>
+  </head>
+  <body>
+    <script>
+      //        🔮 Predictable Failure Paths
+      //🧬 What Does This Mean?
+      //Errors are not random.
+      //Most failures happen in known, repeatable places.
+
+      //Examples:
+      //🔹 Network requests
+      //🔹 File access
+      //🔹 User input
+      //🔹 External APIs
+      //🔹 Time-based logic
+
+      function loadUser(id) {
+        if (!id) throw new Error("User ID required");
+        // predictable failure: API request
+      }
+
+      //      ✅ Professional Mindset
+      //✔ Identify where failures can happen
+      //✔ Plan how they should be handled
+      //✔ Never assume success
+
+      //🔐 Trust Boundaries
+      //🧬 What Is a Trust Boundary?
+      //A trust boundary is where your code interacts with something you don’t control.
+      //
+      //Examples:
+      //🔹 User input
+      //🔹 API responses
+      //🔹 Databases
+      //🔹 Configuration files
+      //🔹 Browser storage
+      //
+      //function parseSettings(json) {
+      //  // Trust boundary: external input
+      //  return JSON.parse(json);
+      //}
+      //
+      //🧠 Key Rule
+      //👉 Never trust data that crosses a boundary
+      //
+      //✅ Best Practices
+      //✔ Validate at every boundary
+      //✔ Fail fast on invalid data
+      //✔ Convert unknown input into safe internal formats
+
+      //     🧱 Designing for Failure
+      //🧬 What Does “Designing for Failure” Mean?
+      //Assume that:
+      //🔹 APIs will fail
+      //🔹 Networks will drop
+      //🔹 Data will be corrupted
+      //🔹 Users will make mistakes
+
+      function getUserName(user) {
+        return user?.profile?.name ?? "Guest";
+      }
+
+      //      This code expects failure and handles it gracefully.
+      //
+      //✅ Design Principles
+      //✔ Prefer safe defaults
+      //✔ Provide fallbacks
+      //✔ Avoid crashes
+      //✔ Keep the system running
+
+      //      🛡️ Resilient Application Mindset
+      //🧬 What Is Resilience?
+      //A resilient application:
+      //🔹 Handles errors locally
+      //🔹 Recovers when possible
+      //🔹 Fails safely when necessary
+      //🔹 Never hides critical failures
+      //
+      //try {
+      //  saveData(data);
+      //} catch (err) {
+      //  logError(err);
+      //  showUserMessage("Something went wrong. Please try again.");
+      //}
+      //
+      //      🧠 Key Insight
+      //❌ Crashing is easy
+      //✅ Recovering safely is professional
+    </script>
+  </body>
+</html>
