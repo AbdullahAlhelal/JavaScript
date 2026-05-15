@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Why Classes Exist in JavaScript</title>
+  </head>
+  <body>
+    <script>
+      //        🧠 1️⃣ Object-Oriented Thinking in JavaScript
+      //🔹 What is Object-Oriented Thinking?
+      //It’s a way of designing programs around objects, not just functions.
+      //
+      //Objects represent:
+      //🔹 Real-world things (User, Order, Product)
+      //🔹 Responsibilities (what the object does)
+      //🔹 Data + behavior together
+      //
+      //✔ Example (Real-World Thinking)
+      //User
+      // ├─ name
+      // ├─ email
+      // └─ login()
+      //
+
+      //🧱 2️⃣ Objects vs Classes
+      //🔹 Objects (Direct Creation)
+      const user = {
+        name: "Ahmed",
+        login() {
+          console.log("Logged in");
+        },
+      };
+      //✔ Simple
+      //❌ Hard to scale
+      //❌ Repetition when creating many users
+
+      //🔹 Classes (Blueprints)
+      // A class is NOT an object — it is a template to create objects.
+
+      class User {
+        constructor(name) {
+          this.name = name;
+        }
+
+        login() {
+          console.log(this.name + " logged in");
+        }
+      }
+
+      const u1 = new User("Ahmed");
+      const u2 = new User("Sara");
+
+      //✔ Consistent structure
+      //✔ Reusable
+      //✔ Easier to maintain
+
+      //       3️⃣ Classes Are Syntax Sugar Over Prototypes
+      // 🔹 Important Truth
+      // JavaScript classes are NOT real classes like in Java or C#.
+      //
+      // They are:
+      // 👉 Cleaner syntax built on top of prototypes
+
+      //Behind the scenes:
+
+      class User {
+        login() {}
+      }
+      // Is roughly equivalent to:
+
+      function User() {}
+
+      User.prototype.login = function () {};
+
+      //✔ Same behavior
+      //✔ Same prototype chain
+      //✔ Different syntax
+      //
+      //Classes just make prototype logic:
+      //🔹 Easier to read
+      //🔹 Less error-prone
+      //🔹 More familiar
+
+      // 4️⃣ How Prototypes Fit In
+      //When you create an object from a class:
+
+      const user1 = new User("Ali");
+
+      //JavaScript does:
+      //1️⃣ Create an empty object
+      //2️⃣ Link it to User.prototype
+      //3️⃣ Run constructor()
+      //4️⃣ Return the object
+    </script>
+  </body>
+</html>
