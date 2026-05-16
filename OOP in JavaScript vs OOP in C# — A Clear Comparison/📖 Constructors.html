@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📖 Constructors</title>
+  </head>
+  <body>
+    <script>
+                  //1️⃣ The constructor() Method
+                  //The constructor() is a special method inside a class.
+                  //
+                  //✔ Syntax:
+
+                  class User {
+                    constructor() {
+                      // initialization code
+                    }
+                  }
+
+                  //2️⃣ Initializing Properties
+                  //The main job of the constructor is to initialize object properties using this.
+
+                  //✔ Example:
+
+                  class User1 {
+                    constructor(name, age) {
+                      this.name = name;
+                      this.age = age;
+                    }
+                  }
+
+                  const u = new User1("Ahmed", 30);
+
+                  //3️⃣ Constructor Execution Timing
+                  //The constructor executes immediately when new is used.
+                  //
+                  //✔ Timeline:
+                  //1️⃣ Memory allocated for object
+                  //2️⃣ this bound to new object
+                  //3️⃣ constructor() runs
+                  //4️⃣ Object is returned
+                  //
+                  //✔ Example:
+
+                  class Logger {
+                    constructor() {
+                      console.log("Object created!");
+                    }
+                  }
+
+                  new Logger();
+
+                  //4️⃣ One Constructor Rule
+            //✔ A class can have only ONE constructor.
+            //
+            //❌ Invalid:
+
+            class Test {
+              constructor() {}
+              constructor(a) {}
+            }
+
+            //✔ Solution:
+      //Use optional parameters or conditional logic:
+
+      class User {
+        constructor(name, age = 0) {
+          this.name = name;
+          this.age = age;
+        }
+      }
+    </script>
+  </body>
+</html>
