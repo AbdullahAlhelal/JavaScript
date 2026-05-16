@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧐 Activity - Class Declaration Syntax</title>
+  </head>
+  <body>
+    <script>
+      //Task 1
+      //Create a class named Person with:
+      class Person {
+        constructor(name, age) {
+          this.name = name;
+          this.age = age;
+        }
+        introduce() {
+          console.info(
+            `My ${this.name} is NAME and I am ${this.age} years old`
+          );
+        }
+      }
+
+      //Task 2
+      //Add a method introduce() that prints:
+
+      //My name is NAME and I am AGE years old
+
+      let pr = new Person("ahmad", "15");
+      pr.introduce();
+      //Task 3
+      //Create two instances of Person.
+
+      let p1 = new Person("ali", "19");
+      let p2 = new Person("abdullah", "20");
+
+      //Task 4
+      //Show that calling a class before declaration causes an error.
+      // ❌ This will throw an error
+      const x = new Test();
+
+      class Test {}
+      //Task 5
+      //Explain why classes are not hoisted.
+
+      //Classes are not hoisted to prevent usage before definition and to avoid bugs.
+    </script>
+  </body>
+</html>

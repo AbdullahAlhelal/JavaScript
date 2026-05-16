@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Class Declaration Syntax in JavaScript</title>
+  </head>
+  <body>
+    <script>
+      //        🗝️ Introduction
+      //Classes in JavaScript provide a clear, structured way to define blueprints for creating objects.
+      //
+      //Understanding class declaration syntax is essential before using:
+      //✔ Constructors
+      //✔ Methods
+      //✔ Inheritance
+      //✔ Encapsulation
+      //
+      //This lesson focuses on how a class is written, how it behaves, and important rules you must know.
+
+      //✔ Basic syntax:
+
+      class User {
+        // class body
+      }
+      //2️⃣ Class Naming Conventions
+      //✔ PascalCase (Required Convention)
+      //Class names should always use PascalCase.
+      //✔ Correct:
+
+      class User {}
+      class ShoppingCart {}
+      class OrderItem {}
+      //❌ Incorrect:
+
+      class user {}
+      class shopping_cart {}
+      class orderitem {}
+
+      //3️⃣ Class Body Structure
+      //A class body contains:
+      //
+      //🔹 Constructor (optional but common)
+      //🔹 Methods (functions inside the class)
+      //
+      //✔ Example:
+      //
+      class User1 {
+        constructor(name) {
+          this.name = name;
+        }
+
+        login() {
+          console.log(this.name + " logged in");
+        }
+
+        logout() {
+          console.log(this.name + " logged out");
+        }
+      }
+
+      //5️ Hoisting Behavior of Classes (VERY IMPORTANT)
+      //❌ Classes Are NOT Hoisted Like Functions
+      //This code ❌ throws an error:
+
+      const u = new User2("Ahmed");
+
+      class User2 {
+        constructor(name) {
+          this.name = name;
+        }
+      }
+    </script>
+  </body>
+</html>
