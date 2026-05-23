@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity - Constructors</title>
+  </head>
+  <body>
+    <script>
+      // Task 1
+      //Create a class Car with a constructor that initializes:
+      //
+      //🔹 brand
+      //🔹 model
+      //🔹 year
+
+      class clsCar {
+        constructor(brand, model, year) {
+          this.brand = brand;
+          this.model = model;
+          this.year = year;
+        }
+
+        start() {
+          console.log("Car " + this.brand + " " + this.model + " started");
+        }
+      }
+      //     Task 2
+      //Create two car objects using new.
+      let Car1 = new clsCar("BMW", "MW3", new Date("1990-12-10"));
+      let Car2 = new clsCar("Mercedes", "G CLASS", new Date("2020-12-10"));
+
+      //Add a start() method that prints:
+
+      //Car BRAND MODEL started
+      let Car3 = new clsCar("BMW", "MW3", new Date("1990-12-10"));
+
+      Car3.start();
+
+      //    Task 4
+      //Prove that the constructor runs immediately when an object is created.
+
+      class Test {
+        constructor() {
+          console.log("Constructor executed!");
+        }
+      }
+
+      new Test();
+
+      //    Task 5
+      //Rewrite the same logic using a factory function.
+
+      function createCar(brand, model, year) {
+        return {
+          brand,
+          model,
+          year,
+          start() {
+            console.log("Car " + brand + " " + model + " started");
+          },
+        };
+      }
+
+      const car = createCar("Honda", "Civic", 2019);
+      car.start();
+    </script>
+  </body>
+</html>
