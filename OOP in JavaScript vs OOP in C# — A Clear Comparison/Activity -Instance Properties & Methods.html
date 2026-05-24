@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity -Instance Properties & Methods</title>
+  </head>
+  <body>
+    <script>
+      //Task 1
+      //Create a class Car with instance properties:
+      //
+      //brand
+      //speed
+      //Add a method drive() that prints the current speed.
+
+      class clsCar {
+        constructor(brand, speed) {
+          this.brand = brand;
+          this.speed = speed;
+        }
+        drive() {
+          document.write(`<h1>  ${this.speed}</h1>`);
+        }
+
+        drive(amount) {
+          this.speed += amount;
+        }
+      }
+
+      let t = new clsCar("test", 150);
+      t.drive();
+
+      //Task 2
+      //Create two different Car objects and call drive() on each.
+
+      let t1 = new clsCar("test", 250);
+      t1.drive();
+
+      let t2 = new clsCar("test", 350);
+      t2.drive();
+
+      //Task 3
+      //Add a method accelerate(amount) that increases the speed.
+      car2.accelerate(20);
+      car2.drive();
+      //Task 4
+      //Demonstrate what happens when a method loses its this context.
+      //✔ Solution 4 (Lost Context)
+      const driveFn = car1.drive;
+      driveFn(); // ❌ this is undefined
+      //Task 5
+      //Fix the issue using .bind().
+
+      //✔ Solution 5 (Fix with bind)
+      const fixedDrive = car1.drive.bind(car1);
+      fixedDrive();
+    </script>
+  </body>
+</html>

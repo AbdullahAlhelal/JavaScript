@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instance Properties & Methods</title>
+  </head>
+  <body>
+    <script>
+      //🧬 What Are Instance Properties?
+      //🔹 Instance properties are variables that belong to a specific object created from a class.
+      //
+      //They are usually:
+      //
+      //Defined inside the constructor
+      //Accessed using this.propertyName
+      //✔ Example — Instance Properties
+      class User {
+        constructor(name, age) {
+          this.name = name; // instance property
+          this.age = age; // instance property
+        }
+      }
+
+      const u1 = new User("Ahmed", 30);
+      const u2 = new User("Sara", 25);
+
+      //      🧬 What Are Instance Methods?
+      //🔹 Instance methods are functions defined inside a class that operate on instance properties.
+      //
+      //They:
+      //
+      //Are shared by all instances
+      //Use this to access the current object’s data
+      //
+      //1️⃣ Defining Methods
+      //✔ Method Syntax Inside a Class
+      class User {
+        constructor(name) {
+          this.name = name;
+        }
+
+        greet() {
+          console.log("Hello, " + this.name);
+        }
+      }
+
+      //2️⃣ Calling Methods
+      //Methods are called using dot notation on the instance.
+
+      const user = new User("Ahmed");
+      user.greet();
+
+      //📤 Output
+
+      //Hello, Ahmed;
+
+      //3️⃣ Understanding this Inside Class Methods
+      //🧠 Key Rule
+      //
+      //Inside a class method, this refers to the object that called the method.
+      //✔ Example
+
+      class Counter {
+        constructor() {
+          this.count = 0;
+        }
+
+        increment() {
+          this.count++;
+          console.log(this.count);
+        }
+      }
+
+      const c = new Counter();
+      c.increment();
+      c.increment();
+
+      //📤 Output
+      //
+      //1
+      //2
+
+      //  ⚠️ Common Mistake with this
+      const incrementFn = c.increment;
+      incrementFn(); // ❌ this is undefined (or window in non-strict mode)
+
+      //Why?
+      //
+      //🔴 The method lost its object context
+      //🔴 this is no longer bound to c
+
+      //4️⃣ Method Binding Behavior
+      //🧠 What Is Method Binding?
+      //Binding determines what this refers to when a method is called.
+      //
+      //In JavaScript:
+      //
+      //Methods are NOT automatically bound
+      //Context depends on how the function is called
+      //
+      //✔ Solution 1 — Bind Manually
+      const boundIncrement = c.increment.bind(c);
+      boundIncrement();
+
+      // ✔ Solution 2 — Arrow Function Wrapper
+      class Timer {
+        constructor() {
+          this.seconds = 0;
+
+          setInterval(() => {
+            this.seconds++;
+            console.log(this.seconds);
+          }, 1000);
+        }
+      }
+      //5️⃣ Methods vs Properties (Important Distinction)
+      class Example {
+        value = 10; // property
+        show() {
+          // method
+          console.log(this.value);
+        }
+      }
+    </script>
+  </body>
+</html>
