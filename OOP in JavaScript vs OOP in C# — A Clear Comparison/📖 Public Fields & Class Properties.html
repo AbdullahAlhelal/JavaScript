@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📖 Public Fields & Class Properties</title>
+  </head>
+  <body>
+    <script>
+      //1️⃣ Declaring Properties Inside a Class
+      //❌ Old Style (Constructor Only)
+      class User {
+        constructor(name) {
+          this.name = name;
+        }
+      }
+      //✅ Modern Style (Public Fields)
+      class User1 {
+        name;
+        age;
+      }
+
+      //2️⃣ Public Fields Syntax
+      //Public fields are written like variables inside the class body.
+
+      //✔ Example
+      class User3 {
+        name = "Guest";
+        age = 0;
+
+        greet() {
+          console.log("Hello, " + this.name);
+        }
+      }
+
+      const u = new User3();
+
+      u.greet();
+
+      //3️⃣ Public Fields vs Constructor Properties
+      //✔ Example — Mixing Both
+      class Product {
+        category = "General"; // public field
+
+        constructor(name, price) {
+          this.name = name; // constructor property
+          this.price = price;
+        }
+      }
+
+      const p = new Product("Laptop", 1000);
+      console.log(p);
+
+      //📤 Output (conceptual)
+
+      //{
+      //  category: "General",
+      //  name: "Laptop",
+      //  price: 1000
+      //}
+
+      //4️⃣ Instance-Level vs Method-Defined Properties
+      //✔ Example — Instance-Level Property
+      class Counter {
+        count = 0; // always exists
+
+        increment() {
+          this.count++;
+        }
+      }
+
+      const c = new Counter();
+      console.log(c.count);
+
+      //      ✔ Example — Method-Defined Property
+      class Session {
+        start() {
+          this.startedAt = new Date();
+        }
+      }
+
+      const s = new Session();
+      console.log(s.startedAt); // undefined
+
+      s.start();
+      console.log(s.startedAt);
+
+      //5️⃣ Why Public Fields Matter
+      //✔ Clear visibility of class data
+      //✔ Less constructor clutter
+      //✔ Easier onboarding for beginners
+      //✔ Better readability in large classes
+    </script>
+  </body>
+</html>
