@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧐 Activity - Public Fields & Class Properties</title>
+</head>
+
+<body>
+    <script>
+
+        class Student {
+            name = "Unknown";
+            grade = 0;
+
+            introduce() {
+                console.log(this.name + " has grade " + this.grade);
+            }
+
+            promote() {
+                this.level = "Next Level";
+            }
+        }
+
+
+        let st = new stuednt();
+        st.introduce();
+
+        const s1 = new Student();
+        const s2 = new Student();
+
+        s1.introduce();
+        s2.introduce();
+
+        //✔ Solution 4 & 5
+        console.log(s1.level); // undefined
+
+        s1.promote();
+        console.log(s1.level);
+    </script>
+
+</body>
+
+</html>
