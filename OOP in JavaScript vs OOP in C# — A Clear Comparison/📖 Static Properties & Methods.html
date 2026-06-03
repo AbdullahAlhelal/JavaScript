@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📖 Static Properties & Methods</title>
+  </head>
+  <body>
+    <script>
+      //        1️⃣ The static Keyword
+      //The static keyword defines properties or methods on the class, not on instances.
+      //
+      //✔ Example — Static Method
+      class MathUtils {
+        static add(a, b) {
+          return a + b;
+        }
+      }
+
+      console.log(MathUtils.add(2, 3));
+
+      class User {
+        static role() {
+          return "Guest";
+        }
+
+        role() {
+          return "tes";
+        }
+      }
+
+      console.log(User.role());
+
+      let u = new User();
+      console.log(u.role());
+
+      //      3️⃣ Static Properties
+      //Static properties store class-level data.
+      //
+      //✔ Example — Static Property
+      class Config {
+        static appName = "My App";
+        static version = "1.0.0";
+      }
+      Config.appName.slice();
+      console.log(Config.appName);
+      console.log(Config.version);
+
+      //      4️⃣ Utility Classes
+      //Utility classes:
+      //✔ Are NOT meant to be instantiated
+      //✔ Contain only static methods/properties
+      //
+      //✔ Example — Utility Class
+      class StringUtils {
+        static capitalize(text) {
+          return text[0].toUpperCase() + text.slice(1);
+        }
+      }
+
+      console.log(StringUtils.capitalize("hello"));
+      //  5️⃣ Common Use Cases for Static Members
+      //✔ Validation helpers
+      //✔ Formatting functions
+      //✔ Configuration constants
+      //✔ Factory helpers
+      //✔ Counters / shared state
+      //
+      //
+      //✔ Example — Static Counter
+      class User {
+        static count = 0;
+
+        constructor(name) {
+          this.name = name;
+          User.count++;
+        }
+      }
+
+      new User("Ali");
+      new User("Sara");
+    </script>
+  </body>
+</html>
