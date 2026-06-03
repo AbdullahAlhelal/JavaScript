@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📖 Getters & Setters in JavaScript</title>
+  </head>
+  <body>
+    <script>
+      //        1️⃣ The get Keyword
+      //A getter allows you to compute or control access to a value.
+      //
+      //✔ Example — Simple Getter
+      class User {
+        constructor(name) {
+          this._name = name;
+        }
+
+        get name() {
+          return this._name;
+        }
+      }
+
+      //      2️⃣ The set Keyword
+      //A setter allows you to control or validate assigned values.
+      //
+      //✔ Example — Simple Setter
+      class User {
+        constructor(name) {
+          this._name = name;
+        }
+
+        set name(value) {
+          this._name = value;
+        }
+
+        get name() {
+          return this._name;
+        }
+      }
+
+      const u = new User("Ahmed");
+      u.name = "Sara";
+
+      console.log(u.name);
+
+      const u = new User("Ahmed");
+      console.log(u.name);
+
+      //      3️⃣ Encapsulation Basics
+      //🧠 Encapsulation means:
+      //
+      //Hiding internal data
+      //Exposing controlled access points
+      //Convention:
+      //🔹 Use _propertyName for internal fields
+      //🔹 Use getters/setters for public access
+      //
+      //
+      //✔ Example — Encapsulation Pattern
+      class Account {
+        constructor(balance) {
+          this._balance = balance;
+        }
+
+        get balance() {
+          return this._balance;
+        }
+      }
+
+      //      4️⃣ Validation Through Setters
+      //Setters shine when enforcing rules.
+      //
+      //✔ Example — Validation
+      class Account {
+        constructor(balance) {
+          this._balance = balance;
+        }
+
+        set balance(value) {
+          if (value < 0) {
+            throw new Error("Balance cannot be negative");
+          }
+          this._balance = value;
+        }
+
+        get balance() {
+          return this._balance;
+        }
+      }
+
+      const acc = new Account(100);
+      acc.balance = 200;
+      
+      console.log(acc.balance);
+
+      //      5️⃣ Why Not Just Use Methods?
+      //❌ Old style:
+
+      user.getName();
+      user.setName("Ali");
+
+      //✅ Modern style:
+
+      user.name;
+      user.name = "Ali";
+
+      //✔ Cleaner syntax
+      //✔ More readable
+      //✔ Still fully controlled
+    </script>
+  </body>
+</html>

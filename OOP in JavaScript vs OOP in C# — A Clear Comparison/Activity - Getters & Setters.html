@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity - Getters & Setters</title>
+  </head>
+  <body>
+    <script>
+      //Task 1
+      //Create a class Product with:
+      //
+      //Internal property _price
+      //Task 2
+      //Create a getter price that returns _price.
+      class Product {
+        constructor(price) {
+          this._price = price;
+        }
+        get price() {
+          return this._price;
+        }
+        set price(value) {
+          if (value < 0) throw new Error("price cannot be negative");
+          this._price = value;
+        }
+      }
+
+      //      Task 3
+      //Create a setter price that:
+      //
+      //Rejects negative values
+      //Accepts valid prices
+
+      let x = new Product(10);
+      x.price = 15;
+      console.log(x.price);
+
+      const p = new Product(100);
+      console.log(p.price);
+
+      p.price = 150;
+      console.log(p.price);
+
+      // p.price = -20; // Error
+
+      //🔹 Direct access bypasses validation 🔹 Breaks encapsulation
+      //🔹 Makes future changes risky
+      //✔ Getters & setters protect your design.
+    </script>
+  </body>
+</html>
