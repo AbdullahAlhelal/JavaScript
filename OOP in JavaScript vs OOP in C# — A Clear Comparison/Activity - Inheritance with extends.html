@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity - Inheritance with extends</title>
+  </head>
+  <body>
+    <script>
+      //Task 1
+      //Create a parent class Vehicle with a method move() that returns "Vehicle is moving".
+
+      class Vehicle {
+        move() {
+          return "Vehicle is moving";
+        }
+      }
+      //Task 2
+      //Create a child class Car that extends Vehicle and adds a method drive().
+      class Car extends Vehicle {
+        drive() {
+          return "drive";
+        }
+      }
+      //Task 3
+      //Create a child class Bike that extends Vehicle and overrides move().
+      class Bike extends Vehicle {
+        drive() {
+          return "drive";
+        }
+        move() {
+          return "Bike is moving";
+        }
+      }
+      //Task 4
+      //Create instances of Car and Bike and call their methods.
+      const car = new Car();
+      const bike = new Bike();
+
+      console.log(car.move());
+      console.log(car.drive());
+      console.log(bike.move());
+
+      //Task 5
+      //Verify inheritance using instanceof.
+
+      console.log(car instanceof Car); // true
+      console.log(car instanceof Vehicle); // true
+      console.log(bike instanceof Vehicle); // true
+    </script>
+  </body>
+</html>
