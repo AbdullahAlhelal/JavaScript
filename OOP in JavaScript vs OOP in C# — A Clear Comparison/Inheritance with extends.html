@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inheritance with extends</title>
+  </head>
+  <body>
+    <script>
+      //🗝️ Introduction
+      //Inheritance allows one class to reuse and extend the behavior of another class.
+      //
+      //Instead of duplicating code, JavaScript lets you create a parent (base) class and then build child (derived) classes on top of it.
+      //
+      //This leads to:
+      //✔ Cleaner code
+      //✔ Reusability
+      //✔ Clear hierarchy
+      //✔ Easier maintenance
+      //🧬 What Is Inheritance?
+      //🔹 Inheritance means one class is based on another class
+      //🔹 The child class inherits properties and methods from the parent
+      //🔹 The child can add new behavior or override existing behavior
+      //
+      //Think of it as:
+      //👉 “A child IS A type of parent”
+
+      ///      1️⃣ Parent (Base) Classes
+      ///A parent class defines common behavior that other classes can reuse.
+      ///
+      ///✔ Example — Parent Class
+      class Animal {
+        speak() {
+          return "The animal makes a sound";
+        }
+      }
+
+      //      2️⃣ Child (Derived) Classes
+      //A child class inherits from a parent class and specializes it.
+      //
+      //✔ Example — Child Class
+      class Dog extends Animal {
+        bark() {
+          return "Woof!";
+        }
+      }
+
+      //3️⃣ The extends Keyword
+      //The extends keyword creates an inheritance relationship.
+
+      class Child extends Parent {}
+
+      //4️⃣ Using Inherited Methods
+      const dog = new Dog();
+
+      console.log(dog.speak());
+      console.log(dog.bark());
+
+      //5️⃣ Inheritance Hierarchy
+      //Inheritance can be multi-level.
+
+      //✔ Example — Hierarchy
+      class Animal {
+        eat() {
+          return "Eating...";
+        }
+      }
+
+      class Mammal extends Animal {
+        walk() {
+          return "Walking...";
+        }
+      }
+
+      class Human extends Mammal {
+        speak() {
+          return "Talking...";
+        }
+      }
+
+      const h = new Human();
+
+      console.log(h.eat());
+      console.log(h.walk());
+      console.log(h.speak());
+
+      //📤 Output
+      //
+      //Eating...
+      //Walking...
+      //Talking...
+
+      //6️⃣ Method Overriding (Important Concept)
+      //A child class can override a parent method.
+
+      class Animal {
+        speak() {
+          return "Generic sound";
+        }
+      }
+
+      class Cat extends Animal {
+        speak() {
+          return "Meow";
+        }
+      }
+
+      const cat = new Cat();
+      console.log(cat.speak());
+    </script>
+  </body>
+</html>
