@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧐 Activity – From Promises to async/await</title>
+  </head>
+  <body>
+    <script>
+      async function loadData() {
+        try {
+          const user = await fetchUser();
+          const posts = await fetchPosts(user.id);
+          console.log(posts);
+        } catch (error) {
+          console.error(error);
+        }
+      }
+    </script>
+  </body>
+
+  <div>
+    <pre>
+        🧐 Activity – From Promises to async/await
+📋 Instructions
+You are given this Promise-based code:
+
+fetchUser()
+  .then(user => fetchPosts(user.id))
+  .then(posts => console.log(posts))
+  .catch(error => console.error(error));
+
+1️⃣ Rewrite this logic using async / await
+
+2️⃣ Use try / catch for error handling
+
+3️⃣ Keep the logic exactly the same
+    </pre>
+  </div>
+</html>
