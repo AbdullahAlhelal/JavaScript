@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      div > pre {
+        border: 2px solid black;
+        border-radius: 2rem;
+        box-sizing: border-box;
+        padding: 1rem;
+        display: flow-root;
+
+        align-items: center;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <pre>
+            📖 From Promises to async/await
+🗝️ Introduction
+Promises solved many problems in asynchronous JavaScript—but they introduced a new challenge:
+
+👉 Even though Promises are powerful, reading and writing them can feel unnatural, especially for beginners.
+
+That’s why async / await was introduced.
+
+This lesson explains:
+
+Why async / await exists
+How it simplifies syntax
+How it is still built entirely on Promises
+
+🧬 Why async / await Was Introduced
+The Problem with Promise Syntax (Beginner View)
+Promise chains are correct—but they don’t look like normal code.
+
+Example with Promises:
+
+fetchData()
+  .then(data => processData(data))
+  .then(result => saveResult(result))
+  .catch(error => handleError(error));
+
+📌 Problems for beginners:
+
+Logic flows top-down mentally, but code flows through callbacks
+Error handling feels separate
+Harder to debug step by step
+👉 JavaScript needed a way to write async code that looks synchronous.
+
+
+The Goal of async / await
+🔹 Make async code easier to read
+
+🔹 Make async code easier to write
+
+🔹 Make async code easier to reason about
+
+👉 Same behavior, clearer syntax.
+
+
+🧬 Syntax Simplification
+Promise Version (What You Already Know)
+fetchData()
+  .then(data => {
+    return processData(data);
+  })
+  .then(result => {
+    return saveResult(result);
+  })
+  .catch(error => {
+    handleError(error);
+  });
+
+Correct—but visually noisy.
+
+
+async / await Version (Cleaner)
+async function run() {
+  try {
+    const data = await fetchData();
+    const result = await processData(data);
+    await saveResult(result);
+  } catch (error) {
+    handleError(error);
+  }
+}
+
+📌 Same logic. Same behavior. 👉 Much easier to read.
+
+
+Beginner Mental Shift
+Instead of thinking:
+❌ “When this finishes, then do that…”
+
+You think:
+✔ “Wait here, then continue.”
+
+
+🧬 What async Means
+Declaring an async Function
+async function run() {}
+
+📌 Important beginner rules:
+
+async functions always return a Promise
+Even if you return a normal value
+Example:
+
+async function getNumber() {
+  return 5;
+}
+
+👉 This actually returns:
+
+Promise.resolve(5);
+
+
+🧬 What await Means
+Using await
+const data = await fetchData();
+
+📌 What this means:
+
+Pause this function
+Wait for the Promise to settle
+Resume with the resolved value
+❗ Important:
+
+await can only be used inside an async function
+
+🧬 Relationship Between Promises and async / await
+Very Important Truth
+👉 async / await does NOT replace Promises.
+👉 It is syntax sugar on top of Promises.
+
+
+Under the Hood
+This:
+
+const data = await fetchData();
+
+Is internally similar to:
+
+fetchData().then(data => {
+  // continue
+});
+
+📌 Same Promise
+📌 Same async behavior
+📌 Different syntax
+
+
+Why This Matters
+🔹 You still need to understand Promises
+🔹 Errors are still Promise rejections
+🔹 Combinators still work (Promise.all, etc.)
+
+👉 async / await makes Promises easier to use, not optional.
+
+
+🔗 Interconnection
+🔹 Promises → Represent future values
+🔹 .then() → React to future completion
+🔹 async → Declare async flow
+🔹 await → Pause until Promise settles
+
+Together, they form one async system, not two different ones.
+
+
+🏁 Conclusion
+async / await exists to make asynchronous JavaScript human-readable.
+
+It allows you to:
+
+Write async code like normal code
+Handle errors with familiar try / catch
+Keep all Promise power under the hood
+👉 Promises are the engine.
+👉 async / await is the steering wheel.
+
+
+
+By thinking in linear async flows instead of callback chains, you move from writing Promise-based code to engineering clear, maintainable asynchronous logic.
+
+You are now fully prepared to use async / await confidently, because you understand both the syntax and the underlying Promise model.
+        </pre
+      >
+    </div>
+  </body>
+</html>
