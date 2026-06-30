@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📖 Fetch API Basics</title>
+  </head>
+  <body>
+    🧬 What Is fetch()? Simple Definition 👉 fetch() is a JavaScript function
+    used to make HTTP requests. It allows JavaScript to: Request data from a
+    server Send data to a server Communicate with APIs Example (conceptual):
+    fetch("/api/users");
+
+    <!--  -->
+
+    🧬 Basic fetch() Syntax The Simplest Fetch Request
+    fetch("https://example.com/data"); fetch("https://example.com/data");
+    <!--  -->
+    📌 What this does:
+    <!--  -->
+    Sends a GET request Uses default settings Starts the request immediately
+    <!--  -->
+    //Fetch with then() (Basic Form) fetch(url) .then(response =>
+    response.json()) .then(data => console.log(data));
+    <!--  -->
+    Fetch with async / await (Preferred)
+    <!--  -->
+    const response = await fetch(url); const data = await response.json();
+    <!--  -->
+  </body>
+</html>
