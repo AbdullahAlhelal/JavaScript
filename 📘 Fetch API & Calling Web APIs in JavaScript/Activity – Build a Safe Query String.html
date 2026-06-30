@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Activity – Build a Safe Query String</title>
+  </head>
+
+  <script>
+    const params = new URLSearchParams({
+      serach: "web dev",
+      page: 3,
+      limit: 20,
+    });
+
+    const url = new URL("/students", "https://api.example.com");
+
+    url.searchParams.set("search", "web dev");
+    url.searchParams.set("page", 3);
+    url.searchParams.set("limit", 20);
+
+    console.log(url.toString());
+  </script>
+  <body>
+    Activity – Build a Safe Query String 🧐 Activity – Build a Safe Query String
+    📋 Instructions Create a URL for /students with: 🔹 search = "web dev" 🔹
+    page = 3 🔹 limit = 20 Important: Do NOT concatenate strings manually.
+  </body>
+</html>

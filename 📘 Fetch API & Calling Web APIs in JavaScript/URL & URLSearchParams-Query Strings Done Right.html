@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>URL & URLSearchParams-Query Strings Done Right</title>
+  </head>
+  <script>
+    const params = new URLSearchParams({
+      search: "web dev",
+      page: 2,
+      limit: 10,
+    });
+
+    console.log(params.toString());
+
+    const url = new URL("/users", "https://api.example.com");
+
+    url.searchParams.set("search", "omar");
+    url.searchParams.set("page", 1);
+
+    console.log(url.toString());
+
+    //🧬 Reading Query Parameters (Very Common)
+    //Example URL
+    ///products?category=books&sort=price
+
+    const params1 = new URLSearchParams(window.location.search);
+
+    const category = params1.get("category");
+    const sort = params1.get("sort");
+
+    console.log([category, sort]);
+
+    //🧬 Adding, Updating, Removing Params
+    params.set("page", 2); // add or update
+    params.delete("sort"); // remove
+    params.has("category"); // check existenc
+
+    //🧬 Multiple Values for Same Key
+    //Some APIs allow repeated keys:
+
+    //?tag=js&tag=api&tag=security
+
+    params.append("tag", "js");
+    params.append("tag", "api");
+    //To read them:
+
+    params.getAll("tag");
+  </script>
+  <body></body>
+</html>
