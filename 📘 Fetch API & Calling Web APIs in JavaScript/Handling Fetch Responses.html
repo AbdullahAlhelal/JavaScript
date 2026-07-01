@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Handling Fetch Responses</title>
+  </head>
+  <body>
+    What Is response.ok? response.ok is a boolean that tells you:
+    <!--  -->
+    👉 Did the server respond with a successful status code (2xx)?
+    <!--  -->
+    Example:
+    <!--  -->
+    const response = await fetch(url);
+    <!--  -->
+    if (response.ok) { // success }
+    <!-- 🧬 Parsing Response Data
+Why Parsing Is Needed
+The response body arrives as raw data.
+JavaScript must convert it into usable form.
+
+
+Parsing JSON (response.json())
+Most APIs return JSON.
+
+const data = await response.json(); -->
+  </body>
+</html>
