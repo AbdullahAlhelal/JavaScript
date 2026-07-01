@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sending Data to APIs</title>
+  </head>
+  <body>
+    <pre>
+        Basic POST with fetch()
+await fetch("/api/users", {
+  method: "POST"
+});
+
+
+📌 This tells the server:
+
+“I want to create something.”
+But… we haven’t sent any data yet.
+
+
+🧬 Request Body Formats
+What Is the Request Body?
+👉 The request body is where the actual data is sent.
+
+Think of it as:
+
+The package you send inside the request envelope.
+
+Common Body Formats (Beginner View)
+🔹 JSON (most common for APIs)
+🔹 Form data
+🔹 Plain text
+
+In modern JavaScript APIs, JSON is the standard.
+
+
+Why the Format Matters
+The server must know:
+
+How to read the data
+How to parse it correctly
+👉 That’s why body format and headers must match.
+
+
+🧬 Headers (Content-Type)
+What Is Content-Type?
+The Content-Type header tells the server:
+
+“This is the format of the data I’m sending.”
+JSON Content-Type Header
+Content-Type: application/json
+
+📌 Without this header:
+
+The server may reject the request
+Or fail to read the data
+
+
+Setting Headers in Fetch
+headers: {
+  "Content-Type": "application/json"
+}
+
+👉 This is mandatory when sending JSON.
+
+
+Full POST Example
+await fetch("/api/users", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    name: "Ali",
+    email: "ali@example.com"
+  })
+});
+    </pre>
+  </body>
+</html>
