@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exchange Rates</title>
+  </head>
+  <body>
+    <button id="btn">Get Exchange Rates</button>
+
+    <script>
+      async function getExchangeRates() {
+        const url = new URL("https://api.exchangerate.dev/v1/");
+        url.searchParams.append("base", "USD");
+        url.searchParams.append("symbols", "EUR,GBP,JPY");
+
+        console.log(url.toString());
+
+        try {
+          const response = await fetch(url);
+
+          if (!response.ok) {
+            throw new Error(`HTTP Error: ${response.status}`);
+          }
+
+          const data = await response.json();
+          console.log(data);
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      }
+
+      document
+        .getElementById("btn")
+        .addEventListener("click", getExchangeRates);
+    </script>
+  </body>
+</html>
