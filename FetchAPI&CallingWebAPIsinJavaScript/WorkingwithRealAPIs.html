@@ -10,12 +10,12 @@
 
     <script>
       async function getExchangeRates() {
-        const url = new URL("https://api.exchangerate.dev/v1/");
-        url.searchParams.append("base", "USD");
-        url.searchParams.append("symbols", "EUR,GBP,JPY");
+        const url = new URL("https://jsonplaceholder.typicode.com/users");
+        //url.searchParams.append("base", "USD");
+        //url.searchParams.append("symbols", "EUR,GBP,JPY");
 
         console.log(url.toString());
-
+        debugger;
         try {
           const response = await fetch(url);
 
@@ -25,6 +25,10 @@
 
           const data = await response.json();
           console.log(data);
+
+          for (x of data) {
+            document.write("<h1>" + x.name + "</h1>");
+          }
         } catch (error) {
           console.error("Error:", error);
         }
