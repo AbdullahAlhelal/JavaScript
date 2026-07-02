@@ -76,6 +76,37 @@ await fetch("/api/users", {
     email: "ali@example.com"
   })
 });
+
+
+
+🧬 credentials (Cookies & Auth)
+What Does credentials Do?
+Controls whether cookies and authentication data are sent.
+
+Values:
+
+omit → Never send cookies
+same-origin → Send only for same-origin
+include → Always send cookies
+Example:
+
+credentials: "include"
+
+
+
+🧬 Full Fetch Configuration Example
+await fetch("/api/users", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    name: "Ali"
+  }),
+  credentials: "include",
+  cache: "no-cache"
+});
+
     </pre>
   </body>
 </html>

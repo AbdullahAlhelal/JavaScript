@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📖 Fetch with async</title>
+  </head>
+  <body>
+    <!-- 🧬 Using fetch with async Functions
+Basic Pattern (The Foundation)
+async function loadData() {
+  const response = await fetch("/api/data");
+  const data = await response.json();
+  return data;
+}
+ -->
+
+    <!-- 🧬 Error Handling Patterns
+Basic Error Handling (Recommended)
+async function loadData() {
+  try {
+    const response = await fetch(url);
+
+    if (!response.ok) {
+      throw new Error(HTTP ${response.status});
+    }
+
+    return await response.json();
+  } catch (error) {
+    console.error("Request failed:", error);
+    throw error;
+  }
+} -->
+  </body>
+</html>

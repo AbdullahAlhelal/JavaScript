@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📖 Working with Headers - Authorization, Accept, Content-Type</title>
+  </head>
+  <body>
+    Content-Type: application/json
+
+    <!--  -->
+    Example (POST request) fetch("/api/students", { method: "POST", headers: {
+    "Content-Type": "application/json" }, body: JSON.stringify({ name: "Omar",
+    age: 21 }) });
+
+    <!-- 🧬 Accept (What Do I Want Back?)
+🧠 Easy explanation
+Accept tells the server:
+
+“This is the format I expect in the response.”
+Common value:
+
+Accept: application/json -->
+
+    <!-- 🧬 Authorization (Who Am I?)
+🧠 Easy explanation
+Authorization proves who you are.
+
+Most commonly used with tokens.
+
+Example format:
+
+Authorization: Bearer TOKEN_VALUE -->
+
+    🧬 Putting Headers Together (Realistic Example) fetch("/api/tasks", {
+    method: "POST", headers: { "Content-Type": "application/json", "Accept":
+    "application/json", "Authorization": "Bearer token_here" }, body:
+    JSON.stringify({ title: "Learn Headers" }) });
+  </body>
+</html>
