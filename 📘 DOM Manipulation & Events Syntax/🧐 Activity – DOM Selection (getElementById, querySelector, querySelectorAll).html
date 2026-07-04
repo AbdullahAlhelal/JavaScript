@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      🧐 Activity – DOM Selection (getElementById, querySelector,
+      querySelectorAll)
+    </title>
+  </head>
+  <body>
+    <pre>
+        🧐 Activity – DOM Selection (getElementById, querySelector, querySelectorAll)
+📋 Instructions
+1️⃣ Create an HTML page with:
+
+One heading with an id
+Three paragraphs with the same class
+One button
+2️⃣ Use:
+
+getElementById() for the heading
+querySelector() for the first paragraph
+querySelectorAll() for all paragraphs
+3️⃣ On button click:
+
+Change the heading text
+Change the first paragraph text
+Change the color of all paragraphs
+    </pre>
+    <h1 id="title">Original Title</h1>
+
+    <p class="text">Paragraph 1</p>
+    <p class="text">Paragraph 2</p>
+    <p class="text">Paragraph 3</p>
+
+    <button id="btn">Click Me</button>
+
+    <script>
+      const title = document.getElementById("title");
+      const firstParagraph = document.querySelector(".text");
+      const allParagraphs = document.querySelectorAll(".text");
+      const button = document.getElementById("btn");
+
+      button.addEventListener("click", () => {
+        title.textContent = "Title Updated!";
+        firstParagraph.textContent = "I am the first paragraph";
+
+        allParagraphs.forEach((p) => {
+          p.style.color = "orange";
+        });
+      });
+    </script>
+  </body>
+</html>

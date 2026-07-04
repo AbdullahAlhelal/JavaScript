@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      📖 DOM Selection (getElementById, querySelector, querySelectorAll)
+    </title>
+  </head>
+  <body>
+    <pre>
+        🧬 getElementById()
+🧠 Easy Explanation
+🔹 Selects one element only
+🔹 By its unique id
+🔹 Very clear and beginner-friendly
+
+✅ Syntax
+document.getElementById("title");
+
+✅ Example
+<h1 id="title">Welcome</h1>
+
+<script>
+  const heading = document.getElementById("title");
+  heading.textContent = "Hello DOM!";
+</script>
+
+🧬 Rules
+✔ ID must be unique
+✔ Do NOT use #
+✔ Returns one element or null
+
+❌ Wrong:
+
+document.getElementById("#title");
+<!--  -->
+
+🧬 querySelector()
+🧠 Easy Explanation
+🔹 Uses CSS selectors
+🔹 Returns ONLY the first matching element
+🔹 Very flexible
+
+✅ Syntax
+document.querySelector("selector");
+
+✅ Examples
+document.querySelector("#title");   // by id
+document.querySelector(".text");    // by class
+document.querySelector("p");        // by tag
+
+⚠️ Important Rule
+If many elements match, querySelector() returns:
+
+👉 ONLY the first one
+
+Example:
+
+<p class="text">First</p>
+<p class="text">Second</p>
+<p class="text">Third</p>
+
+document.querySelector(".text").textContent;
+// Result → "First"
+<!--  -->
+
+🧬 querySelectorAll()
+🧠 Easy Explanation
+🔹 Selects ALL matching elements
+🔹 Uses CSS selectors
+🔹 Returns a NodeList (collection)
+
+✅ Syntax
+document.querySelectorAll("selector");
+
+✅ Example
+const items = document.querySelectorAll(".text");
+
+items.forEach(el => {
+  el.style.color = "orange";
+});
+
+📌 Now all elements with class .text are affected.
+
+
+    </pre>
+  </body>
+</html>
