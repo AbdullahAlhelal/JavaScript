@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>🧐 Activity – Creating, Removing & Appending Elements</title>
+    <style>
+      li {
+        cursor: pointer;
+        padding: 6px;
+      }
+      li:hover {
+        background: #eee;
+      }
+    </style>
+  </head>
+  <body>
+    <input id="itemText" placeholder="Enter item" />
+    <button id="addBtn">Add Item</button>
+    <p>add many items, then click on specific one to remove it</p>
+
+    <ul id="list"></ul>
+
+    <script>
+      const input = document.getElementById("itemText");
+      const button = document.getElementById("addBtn");
+      const list = document.getElementById("list");
+
+      button.addEventListener("click", () => {
+        const text = input.value.trim();
+        if (!text) return;
+
+        // 1️⃣ Create
+        const li = document.createElement("li");
+        li.textContent = text;
+
+        // 2️⃣ Remove on click
+        li.addEventListener("click", () => {
+          li.remove();
+        });
+
+        // 3️⃣ Append
+        list.appendChild(li);
+
+        input.value = "";
+      });
+    </script>
+  </body>
+</html>
