@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>📖 DOMContentLoaded vs load (Avoid Null Selections)</title>
+  </head>
+  <body>
+    <pre>
+        🧬 DOMContentLoaded (DOM Is Ready)
+🧠 Easy explanation
+DOMContentLoaded fires when:
+👉 HTML is fully parsed
+👉 DOM tree is built
+👉 Before images, videos, CSS finish loading
+
+This is the most common and recommended event for DOM work.
+
+
+Example
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("btn");
+  btn.addEventListener("click", () => {
+    alert("Clicked!");
+  });
+});
+
+
+🧬 load Event (Everything Is Loaded)
+🧠 Easy explanation
+load fires when:
+👉 HTML is parsed
+👉 DOM is ready
+👉 CSS, images, fonts, videos are all loaded
+
+This event waits for everything.
+
+
+Example
+window.addEventListener("load", () => {
+  console.log("Page fully loaded");
+});
+
+📌 This happens later than DOMContentLoaded.
+    </pre>
+  </body>
+</html>
