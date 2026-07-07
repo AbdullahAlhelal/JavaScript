@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      📖 matches() & closest() - Explicit & Practical Usage (No Guessing DOM
+      Paths)
+    </title>
+  </head>
+  <body>
+    <div class="card">
+      <button class="edit"><span>✏️</span> Edit</button>
+    </div>
+    <script>
+      document.addEventListener("click", (e) => {
+        if (!e.target.closest(".edit")) return;
+
+        const card = e.target.closest(".card");
+        console.log("Edit card", card);
+      });
+    </script>
+  </body>
+</html>
