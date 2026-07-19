@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>dataset API (data-* attributes) for Dynamic UI Actions</title>
+  </head>
+  <body>
+    <div class="card" data-id="7">
+      <button data-action="edit">Edit</button>
+      <button data-action="delete">Delete</button>
+    </div>
+
+    <script>
+      document.addEventListener("click", (e) => {
+        if (!e.target.matches("button")) return;
+
+        const action = e.target.dataset.action;
+        const card = e.target.closest(".card");
+        const id = card.dataset.id;
+
+        if (action === "edit") {
+          console.log("Edit item", id);
+        }
+
+        if (action === "delete") {
+          console.log("Delete item", id);
+        }
+      });
+    </script>
+  </body>
+</html>
