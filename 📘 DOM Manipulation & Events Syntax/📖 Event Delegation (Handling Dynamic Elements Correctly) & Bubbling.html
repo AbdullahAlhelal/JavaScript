@@ -16,13 +16,14 @@
     <input id="text" placeholder="Enter item" />
     <button id="addBtn">Add Item</button>
 
-    <ul id="list"></ul>
+    <ul id="list" data-id="1"></ul>
 
     <script>
+      var count = 0;
       const input = document.getElementById("text");
       const button = document.getElementById("addBtn");
       const list = document.getElementById("list");
-
+      console.log(list.dataset.id);
       // Add items dynamically
       button.addEventListener("click", () => {
         const value = input.value.trim();
@@ -30,16 +31,19 @@
 
         const li = document.createElement("li");
         li.textContent = value;
+        li.dataset.id = count;
         li.classList.add("item");
 
         list.append(li);
         input.value = "";
+        count++;
       });
 
       // ✅ Event Delegation (ONE listener)
       list.addEventListener("click", (event) => {
         if (event.target.classList.contains("item")) {
           event.target.remove();
+          console.log(" removed elemnt" + event.target.dataset.id);
         }
       });
     </script>
