@@ -154,7 +154,7 @@
         UI.grid.innerHTML = users
           .map(
             (u) => `
-        <div class="user">
+        <div class="user" data-id = ${u.id}>
           <div style="font-weight:700;">${u.name}</div>
           <div class="muted">@${u.username}</div>
           <div style="margin-top:8px;" class="muted">${u.email}</div>
@@ -200,6 +200,12 @@
 
       UI.btnLoad.addEventListener("click", loadUsers);
       UI.btnRetry.addEventListener("click", loadUsers);
+
+      document.addEventListener("click", (event) => {
+        if (event.target.classList.contains("user")) {
+          console.log(event.target.dataset.id);
+        }
+      });
     </script>
   </body>
 </html>
