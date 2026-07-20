@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //1️⃣ Validation with test()
+
+      const regex = RegExp(/admin/i);
+      console.log(regex.test("Admin user")); // true
+
+      //2️⃣ Extraction with match()
+      const regex1 = RegExp(/\d+/g);
+      console.log(regex1.match("Order 45 costs 300 dollars"));
+      // ["45", "300"]
+    </script>
+  </body>
+</html>
