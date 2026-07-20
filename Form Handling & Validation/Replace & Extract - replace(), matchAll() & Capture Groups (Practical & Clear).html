@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Replace & Extract - replace(), matchAll() & Capture Groups (Practical &
+      Clear)
+    </title>
+  </head>
+  <body>
+    <script>
+      const text = "User: Omar (ID: 42), User: Sara (ID: 17)";
+      const regex = /ID:\s(\d+)/g;
+
+      for (const match of text.matchAll(regex)) {
+        console.log(match[1]);
+      }
+
+      // 2️⃣ Replace names
+      console.log(text.replace(/User:\s\w+/g, "User: REDACTED"));
+    </script>
+  </body>
+</html>
